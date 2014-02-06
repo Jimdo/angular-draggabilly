@@ -1,0 +1,27 @@
+{
+  "name": "angular-directive-seed",
+  "version": "0.0.0",
+  "authors": [
+  ],
+  "description": "A starting point for angular directives.",
+  "main": "dist/angular-directive-seed.js",
+  "keywords": [
+    "directive",
+    "angular"
+  ],
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "angular": "~1.2.8",
+    "angular-mocks": "~1.2.9",
+    "jquery": "~2.0.3",
+    "less": "~1.6.1"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

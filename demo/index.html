@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>My angular demo</title>
+  <link rel="stylesheet/less" type="text/css" href="style.less" />
+  <link rel="stylesheet/less" type="text/css" href="/src/less/style.less" />
+</head>
+<body>
+  <my-app></my-app>
+
+  <script src="/bower_components/jquery/jquery.js"></script>
+  <script>
+    /* jshint indent: false */
+    /* global files, $ */
+    $.get('/tasks/files.js', function() {
+      files.demoEnv.push('demo/app.js');
+      $.each(files.demoEnv, function(i, url) {
+        $('body').append($('<script>').attr('src', '/' + url));
+      });
+    });
+  </script>
+</body>
+</html>
