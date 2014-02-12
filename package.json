@@ -10,7 +10,8 @@
     "angular"
   ],
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "install": "./node_modules/bower/bin/bower install; ln -s ./node_modules/grunt-cli/bin/grunt ./grunt; ./node_modules/protractor/bin/webdriver-manager update; ./grunt build"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,9 @@
     "grunt-protractor-runner": "~0.2.1",
     "protractor": "~0.16.1",
     "grunt-contrib-less": "~0.9.0",
-    "coffee-script": "~1.7.1"
+    "coffee-script": "~1.7.1",
+    "grunt-http-server": "0.0.4",
+    "grunt-cli": "~0.1.13",
+    "bower": "~1.2.8"
   }
 }

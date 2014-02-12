@@ -1,10 +1,12 @@
 var files = require('../files');
+var glob = require('glob');
+
+var jar = glob.sync('node_modules/protractor/selenium/selenium-server-standalone-2.*.jar')[0];
 
 module.exports = {
   options: {
     args: {
-      seleniumAddress: 'http://localhost:4444/wd/hub',
-      seleniumArgs: [],
+      seleniumServerJar: jar,
       capabilities: {
         'browserName': 'chrome'
       },

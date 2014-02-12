@@ -10,24 +10,13 @@ We striped out things we don't use and added Grunt
 Initialize
 ----------
 
-	bower install
 	npm install
-	grunt
 
 
-Start demo & test environment
------------------------------
+Demo !
+------
 
-	./node_modules/protractor/bin/webdriver-manager update --standalone
-	./node_modules/protractor/bin/webdriver-manager start
-	node-dev scripts/web-server.js
-
-
-Play around in demo
--------------------
-
-[http://localhost:8000/demo/index.html](http://localhost:8000/demo/index.html)
-
+Start the demo server with `grunt demo` and go to [http://localhost:8000/demo/](http://localhost:8000/demo/).
 
 
 Make it yours
@@ -88,6 +77,8 @@ Grunt Tasks
  * `grunt build`: Just build
  * `grunt test:e2e`: Just test end to end
  * `grunt dist`: Test, build, bump patch version, commit, add version tag and push
+
+_See Gruntfile.js and tasks/options for all task details._
 
 
 LICENSE
