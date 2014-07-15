@@ -9,7 +9,7 @@ describe('Setup', function() {
     expect(angular).toBeDefined();
   });
 
-  it('should be able to find the angular fontselect module', function() {
+  it('should be able to find the angular module', function() {
     expect(angular.module('myModule')).toBeDefined();
   });
 
