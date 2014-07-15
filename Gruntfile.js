@@ -28,7 +28,6 @@ module.exports = function(grunt) {
     'concat:bannerToDistStyle',
     'concat:bannerToDistStyleMin'
   ]);
-  grunt.registerTask('_git:dist', ['gitcommit:dist', 'gittag:dist', 'gitpush:dist', 'gitpush:disttags']);
   grunt.registerTask('_protractor:start', ['http-server:test', 'protractor']);
 
   /* "Public" Tasks */
@@ -49,12 +48,15 @@ module.exports = function(grunt) {
   /* Build dist files. */
   grunt.registerTask('build', ['ngtemplates', '_build:less', 'concat:dist', 'uglify']);
 
-  /* Distribute a new patch version. */
-  grunt.registerTask('dist', ['test', 'bump', 'build', '_git:dist']);
-  /* Distribute a new minor version. */
-  grunt.registerTask('dist:minor', ['test', 'bump:minor', 'build', '_git:dist']);
-  /* Distribute a new major version. */
-  grunt.registerTask('dist:major', ['test', 'bump:major', 'build', '_git:dist']);
+  /* Distribute a new version. */
+  grunt.registerTask('release', 'Test, bump, build and release.', function(type) {
+    grunt.task.run([
+      'test',
+      'bump-only:' + (type || 'patch'),
+      'build',
+      'bump-commit'
+    ]);
+  });
 
   /* test and build by default. */
   grunt.registerTask('default', ['test', 'build']);

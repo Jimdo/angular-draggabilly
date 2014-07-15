@@ -37,7 +37,6 @@
     "grunt-contrib-concat": "~0.4.0",
     "load-grunt-tasks": "~0.6.0",
     "grunt-bump": "0.0.14",
-    "grunt-git": "~0.2.14",
     "grunt-angular-templates": "~0.5.6",
     "glob": "~4.0.4",
     "grunt-protractor-runner": "~1.0.1",
