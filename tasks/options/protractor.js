@@ -6,6 +6,7 @@ var jar = glob.sync('node_modules/protractor/selenium/selenium-server-standalone
 module.exports = {
   options: {
     args: {
+      browser: 'chrome',
       seleniumServerJar: jar,
       capabilities: {
         'browserName': 'chrome'
