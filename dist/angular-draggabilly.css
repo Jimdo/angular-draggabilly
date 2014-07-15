@@ -1,6 +1,6 @@
 /*!
- * angular-directive-seed v0.0.0
- * https://github.com/Jimdo/angular-directive-seed
+ * angular-draggabilly v0.0.0
+ * https://github.com/Jimdo/angular-draggabilly
  *
  * A starting point for angular directives.
  *

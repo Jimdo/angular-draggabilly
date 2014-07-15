@@ -1,7 +1,7 @@
 Angular Directive Seed
 ======================
 
-[![Build Status](https://travis-ci.org/Jimdo/angular-directive-seed.png)](https://travis-ci.org/Jimdo/angular-directive-seed)
+[![Build Status](https://travis-ci.org/Jimdo/angular-draggabilly.png)](https://travis-ci.org/Jimdo/angular-draggabilly)
 
 Basically a clone of [angular seed](https://github.com/angular/angular-seed)  
 We striped out things we don't use and added Grunt

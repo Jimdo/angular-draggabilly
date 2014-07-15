@@ -1,8 +1,8 @@
 {
-  "name": "angular-directive-seed",
+  "name": "angular-draggabilly",
   "version": "0.0.0",
   "description": "A starting point for angular directives.",
-  "homepage": "https://github.com/Jimdo/angular-directive-seed",
+  "homepage": "https://github.com/Jimdo/angular-draggabilly",
   "author": "Jimdo, Hannes Diercks <hannes.diercks@jimdo.com>",
   "main": "Gruntfile.js",
   "keywords": [
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Jimdo/angular-directive-seed.git"
+    "url": "https://github.com/Jimdo/angular-draggabilly.git"
   },
   "license": "MIT",
   "devDependencies": {

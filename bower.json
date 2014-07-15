@@ -1,10 +1,9 @@
 {
-  "name": "angular-directive-seed",
+  "name": "angular-draggabilly",
   "version": "0.0.0",
-  "authors": [
-  ],
+  "authors": [],
   "description": "A starting point for angular directives.",
-  "main": "dist/angular-directive-seed.js",
+  "main": "dist/angular-draggabilly.js",
   "keywords": [
     "directive",
     "angular"
@@ -12,8 +11,7 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "angular": "~1.2.8",
-    "angular-mocks": "~1.2.9",
+    "angular-mocks": "~1.2.20",
     "jquery": "~2.0.3",
     "less": "~1.6.1"
   },
@@ -27,5 +25,9 @@
     "src",
     "Gruntfile.js",
     "package.json"
-  ]
+  ],
+  "dependencies": {
+    "angular": "~1.2.20",
+    "draggabilly": "~1.1.0"
+  }
 }
