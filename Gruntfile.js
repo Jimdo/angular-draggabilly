@@ -21,7 +21,7 @@ module.exports = function(grunt) {
   grunt.loadTasks('tasks');
 
   /* "Helper" Tasks */
-  grunt.registerTask('_test:beforeEach', ['jshint', 'ngtemplates']);
+  grunt.registerTask('_test:beforeEach', []);
   grunt.registerTask('_git:dist', ['gitcommit:dist', 'gittag:dist', 'gitpush:dist', 'gitpush:disttags']);
   grunt.registerTask('_protractor:start', ['http-server:test', 'protractor']);
 
@@ -34,14 +34,14 @@ module.exports = function(grunt) {
   grunt.registerTask('demo', ['http-server:demo']);
 
   /* Execute all tests. */
-  grunt.registerTask('test', ['_test:beforeEach', 'karma:all', '_protractor:start']);
+  grunt.registerTask('test', ['jshint', '_test:beforeEach', 'karma:all', '_protractor:start']);
   /* Execute e2e tests. */
   grunt.registerTask('test:e2e', ['_test:beforeEach', '_protractor:start']);
   /* Execute karma tests with Firefox and PhantomJS. */
   grunt.registerTask('test:travis', ['_test:beforeEach', 'karma:travis']);
 
   /* Build dist files. */
-  grunt.registerTask('build', ['ngtemplates', 'concat:dist', 'uglify']);
+  grunt.registerTask('build', ['concat:dist', 'uglify']);
 
   /* Distribute a new patch version. */
   grunt.registerTask('dist', ['test', 'bump', 'build', '_git:dist']);

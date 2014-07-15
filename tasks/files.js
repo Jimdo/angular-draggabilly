@@ -10,12 +10,7 @@ var files = {
   distMin: 'dist/<%= pkg.name %>.min.js',
   dists: 'dist/*',
 
-  partialsDir: 'src/partials',
-  allHTML: '*.html',
-  allPartials: 'src/partials/*.html',
-  allPartialsCombined: 'test/e2e/env/all-partials.js',
-
-  unitTests: 'test/unit/**/*.+(js|coffee)',
+  unitTests: 'test/unit/**/*.js',
   e2eTests: ['test/e2e/SpecHelper.+(js|coffee)', 'test/e2e/*Spec.+(js|coffee)'],
   testEnvKarma: [
     'bower_components/angular/angular.js',
@@ -27,7 +22,6 @@ var files = {
 
 /* Prepare environments */
 files.testEnvKarma = files.testEnvKarma.concat(files.source);
-files.testEnvKarma.push(files.allPartialsCombined);
 
 files.testEnv = JSON.parse(JSON.stringify(files.testEnvKarma));
 files.demoEnv = JSON.parse(JSON.stringify(files.testEnv));
