@@ -1,8 +1,8 @@
-angular.module('myApp', ['myModule']).directive('myApp', function() {
+angular.module('myApp', ['draggabilly']).directive('myApp', function() {
   return {
     restrict: 'E',
     replace: false,
-    template: '<div my-directive></div>',
+    template: '<div draggabilly></div>',
     controller: ['$scope', function($scope) {
       /* do something with $scope */
       $scope.bar = 'lorem';

@@ -10,7 +10,7 @@ describe('Setup', function() {
   });
 
   it('should be able to find the angular module', function() {
-    expect(angular.module('myModule')).toBeDefined();
+    expect(angular.module('draggabilly')).toBeDefined();
   });
 
   it('should use the full jQuery to find elements', function() {

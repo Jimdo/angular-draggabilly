@@ -1,5 +1,5 @@
-/* global myModule */
-myModule.directive('myDirective', [function() {
+/* global draggabilly */
+draggabilly.directive('draggabilly', [function() {
   return {
     templateUrl: 'directive.html',
     controller: ['$scope', function($scope) {

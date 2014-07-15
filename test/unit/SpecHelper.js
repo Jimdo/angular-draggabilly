@@ -8,7 +8,7 @@ var $rootScope, $compile, $injector, $httpBackend, $scope, $q, $controller, elm;
 
 beforeEach(function() {
   /* Initiate the main module */
-  module('myModule');
+  module('draggabilly');
 
   /* jshint maxparams: 10 */
   inject(function(_$rootScope_, _$compile_, _$injector_, _$httpBackend_, _$q_, _$controller_) {
@@ -22,7 +22,7 @@ beforeEach(function() {
   });
 
   /* Create the element for our directive */
-  elm = angular.element('<div my-directive>');
+  elm = angular.element('<div draggabilly>');
 
   /* Apply the directive */
   $compile(elm)($rootScope);
