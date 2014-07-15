@@ -22,12 +22,6 @@ module.exports = function(grunt) {
 
   /* "Helper" Tasks */
   grunt.registerTask('_test:beforeEach', ['jshint', 'ngtemplates']);
-  grunt.registerTask('_build:less', [
-    'less:dist',
-    'less:distmin',
-    'concat:bannerToDistStyle',
-    'concat:bannerToDistStyleMin'
-  ]);
   grunt.registerTask('_git:dist', ['gitcommit:dist', 'gittag:dist', 'gitpush:dist', 'gitpush:disttags']);
   grunt.registerTask('_protractor:start', ['http-server:test', 'protractor']);
 
@@ -47,7 +41,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test:travis', ['_test:beforeEach', 'karma:travis']);
 
   /* Build dist files. */
-  grunt.registerTask('build', ['ngtemplates', '_build:less', 'concat:dist', 'uglify']);
+  grunt.registerTask('build', ['ngtemplates', 'concat:dist', 'uglify']);
 
   /* Distribute a new patch version. */
   grunt.registerTask('dist', ['test', 'bump', 'build', '_git:dist']);
