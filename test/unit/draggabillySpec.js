@@ -1,8 +1,9 @@
-describe('Setup', function() {
+/* global $rootScope, $scope */
+describe('draggabilly', function() {
   'use strict';
 
-  it('should have a scope', function() {
-//    expect($scope).not.toBe($rootScope);
+  it('should not create its own scope', function() {
+    expect($scope).toBeUndefined();
   });
 
 });

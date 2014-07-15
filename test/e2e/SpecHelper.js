@@ -11,8 +11,5 @@ beforeEach(function() {
 });
 
 module.exports = {
-  help: function() {
-    i++;
-    return i <= 1 ? '... I need somebody.' : 'not just anybody!';
-  }
+
 };
