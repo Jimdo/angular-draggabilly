@@ -40,9 +40,10 @@ module.exports = function(grunt) {
   grunt.registerTask('demo', ['http-server:demo']);
 
   /* Execute all tests. */
-  grunt.registerTask('test', ['_test:beforeEach', 'karma:all', '_protractor:start']);
+  grunt.registerTask('test', ['_test:beforeEach', 'karma:all', 'http-server:test', 'protractor:single']);
   /* Execute e2e tests. */
   grunt.registerTask('test:e2e', ['_test:beforeEach', 'http-server:test', 'protractor:single']);
+  grunt.registerTask('test:unit', ['_test:beforeEach', 'karma:all']);
   /* Execute karma tests with Firefox and PhantomJS. */
   grunt.registerTask('test:travis', ['_test:beforeEach', 'karma:travis']);
   grunt.registerTask('test:sauce', ['_test:beforeEach', 'http-server:test', 'protractor:sauce']);
