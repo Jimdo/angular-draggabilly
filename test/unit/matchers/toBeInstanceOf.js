@@ -1,12 +1,26 @@
+/* globals jasmine */
 beforeEach(function() {
-  this.addMatchers({
-    toBeInstanceOf: function(expectedInstance) {
-      var actual = this.actual;
-      var notText = this.isNot ? ' not' : '';
-      this.message = function() {
-        return 'Expected ' + actual.constructor.name + notText + ' is instance of ' + expectedInstance.name;
+  'use strict';
+
+  jasmine.addMatchers({
+    toBeInstanceOf: function() {
+      return {
+        compare: function(actual, expected) {
+          var pass = actual instanceof expected;
+          var name;
+
+          try {
+            name = actual.constructor.name;
+          } catch (e) {
+            name = typeof actual;
+          }
+
+          return {
+            pass: pass,
+            message: name + ' is ' + (!pass ? 'not ' : '') + 'an instance of ' + expected.name
+          };
+        }
       };
-      return actual instanceof expectedInstance;
     }
   });
 });
