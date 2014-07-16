@@ -10,8 +10,16 @@ var files = {
   distMin: 'dist/<%= pkg.name %>.min.js',
   dists: 'dist/*',
 
-  unitTests: 'test/unit/**/*.js',
-  e2eTests: ['test/e2e/SpecHelper.+(js|coffee)', 'test/e2e/*Spec.+(js|coffee)'],
+  unitTests: 'test/unit/**/*.+(js|coffee)',
+  e2eTests: [
+    'test/e2e/SpecHelper.+(js|coffee)',
+    'test/e2e/*Spec.+(js|coffee)'
+  ],
+  e2eAdditionalWatched: [
+    'test/e2e/env/app.js',
+    'test/e2e/env/config.js',
+    'test/e2e/env/index.html'
+  ],
   testEnvKarma: [
     'bower_components/angular/angular.js',
     'bower_components/angular-mocks/angular-mocks.js'

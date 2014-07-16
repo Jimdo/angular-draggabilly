@@ -2,7 +2,7 @@ var grunt = require('grunt');
 var files = require('../files');
 var testfiles = files.source.concat([files.grunt]);
 var unitTestfiles = grunt.util._.clone(testfiles).concat([files.unitTests]);
-var e2eTestfiles = grunt.util._.clone(testfiles).concat([files.e2eTests]);
+var e2eTestfiles = grunt.util._.clone(testfiles).concat([files.e2eTests, files.e2eAdditionalWatched]);
 var bothTestfiles = grunt.util._.clone(unitTestfiles).concat([files.e2eTests]);
 
 module.exports = {
