@@ -2,6 +2,9 @@ var files = require('../files');
 
 module.exports = {
   options: {
+    preprocessors: {
+      '**/*.coffee': ['coffee']
+    },
     frameworks: [
       'jasmine'
     ],
