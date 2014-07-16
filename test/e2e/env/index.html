@@ -5,19 +5,12 @@
   <title>E2E Tests</title>
   <link rel="stylesheet/less" type="text/css" href="/src/less/style.less" />
 </head>
-<body ng-app="myModule">
-  <h1>At least I can read this</h1>
+<body>
   <!--       THIS IS NOT A SANDBOX, IT'S FOR E2E TESTING!      -->
   <!-- PLEASE USE demo/index.html IF YOU'D LIKE TO PLAY AROUND -->
   <div my-directive></div>
   <script src="/bower_components/jquery/jquery.js"></script>
-  <script src="/bower_components/less/dist/less-1.6.1.js"></script>
-  <script src="/bower_components/angular/angular.js"></script>
-  <script src="/bower_components/angular-mocks/angular-mocks.js"></script>
-  <script src="/src/js/helper.module.js"></script>
-  <script src="/test/e2e/env/all-partials.js"></script>
-  <script src="/src/js/directive.directive.js"></script>
-<!--   <script>
+  <script>
     /* jshint indent: false */
     /* global files, $ */
     $.get('/tasks/files.js', function() {
@@ -26,6 +19,6 @@
         $('body').append($('<script>').attr('src', '/' + url));
       });
     });
-  </script> -->
+  </script>
 </body>
 </html>

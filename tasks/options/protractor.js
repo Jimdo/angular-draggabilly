@@ -1,4 +1,3 @@
-var grunt = require('grunt');
 var files = require('../files');
 var glob = require('glob');
 
@@ -22,18 +21,6 @@ module.exports = {
       args: {
         specs: [files.e2eTests],
         seleniumAddress: 'http://localhost:4444/wd/hub'
-      }
-    }
-  },
-  sauce: {
-    options: {
-      configFile: 'test/e2e/env/config.js',
-      args: {
-        specs: [files.e2eTests],
-        'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-        build: process.env.TRAVIS_BUILD_NUMBER,
-        sauceUser: process.env.SAUCE_USERNAME,
-        sauceKey: process.env.SAUCE_ACCESS_KEY
       }
     }
   }
