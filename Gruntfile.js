@@ -28,12 +28,13 @@ module.exports = function(grunt) {
     'concat:bannerToDistStyle',
     'concat:bannerToDistStyleMin'
   ]);
-  grunt.registerTask('_protractor:start', ['http-server:test', 'protractor']);
 
   /* "Public" Tasks */
 
   /* Watch source and test files and execute karma unit tests on change. */
-  grunt.registerTask('watch:start', ['karma:watch:start', 'watch:andtest']);
+  grunt.registerTask('tdd', ['karma:watch:start', 'http-server:test', 'shell:startsilenium', 'watch:andtestboth']);
+  grunt.registerTask('tdd:e2e', ['http-server:test', 'shell:startsilenium', 'watch:andteste2e']);
+  grunt.registerTask('tdd:unit', ['karma:watch:start', 'watch:andtestunit']);
 
   /* Alias for starting the demo server */
   grunt.registerTask('demo', ['http-server:demo']);
@@ -41,7 +42,7 @@ module.exports = function(grunt) {
   /* Execute all tests. */
   grunt.registerTask('test', ['_test:beforeEach', 'karma:all', '_protractor:start']);
   /* Execute e2e tests. */
-  grunt.registerTask('test:e2e', ['_test:beforeEach', '_protractor:start']);
+  grunt.registerTask('test:e2e', ['_test:beforeEach', 'http-server:test', 'protractor:single']);
   /* Execute karma tests with Firefox and PhantomJS. */
   grunt.registerTask('test:travis', ['_test:beforeEach', 'karma:travis']);
 

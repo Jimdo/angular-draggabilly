@@ -82,6 +82,7 @@
         "inject",
         "module",
         "exports",
-        "require"
+        "require",
+        "process"
     ]
 }

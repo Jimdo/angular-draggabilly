@@ -73,10 +73,13 @@ Grunt Tasks
 
  * `grunt`: Execute tests and build dist
  * `grunt test`: Just test
- * `grunt watch:start`: Watch source and test files and run karma on change
- * `grunt build`: Just build
  * `grunt test:e2e`: Just test end to end
- * `grunt dist`: Test, build, bump patch version, commit, add version tag and push
+ * `grunt test:unit`: Just test unit
+ * `grunt tdd`: Watch source and test files and run tests
+ * `grunt tdd:e2e`: Watch and test just end to end
+ * `grunt tdd:unit`: Watch and test just unit
+ * `grunt build`: Just build
+ * `grunt release`: Test, build, bump patch version, commit, add version tag and push
 
 _See Gruntfile.js and tasks/options for all task details._
 
