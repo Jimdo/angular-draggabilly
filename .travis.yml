@@ -18,3 +18,4 @@ before_script:
 
 script:
   - grunt test:travis
+  - grunt test:e2e --browser=Firefox
