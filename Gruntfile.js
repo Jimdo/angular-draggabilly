@@ -28,7 +28,9 @@ module.exports = function(grunt) {
   /* "Public" Tasks */
 
   /* Watch source and test files and execute karma unit tests on change. */
-  grunt.registerTask('watch:start', ['karma:watch:start', 'watch:andtest']);
+  grunt.registerTask('tdd', ['karma:watch:start', 'http-server:test', 'shell:startsilenium', 'watch:andtestboth']);
+  grunt.registerTask('tdd:e2e', ['http-server:test', 'shell:startsilenium', 'watch:andteste2e']);
+  grunt.registerTask('tdd:unit', ['karma:watch:start', 'watch:andtestunit']);
 
   /* Alias for starting the demo server */
   grunt.registerTask('demo', ['http-server:demo']);
@@ -36,19 +38,22 @@ module.exports = function(grunt) {
   /* Execute all tests. */
   grunt.registerTask('test', ['jshint', '_test:beforeEach', 'karma:all', '_protractor:start']);
   /* Execute e2e tests. */
-  grunt.registerTask('test:e2e', ['_test:beforeEach', '_protractor:start']);
+  grunt.registerTask('test:e2e', ['_test:beforeEach', 'http-server:test', 'protractor:single']);
   /* Execute karma tests with Firefox and PhantomJS. */
   grunt.registerTask('test:travis', ['_test:beforeEach', 'karma:travis']);
 
   /* Build dist files. */
   grunt.registerTask('build', ['concat:dist', 'uglify']);
 
-  /* Distribute a new patch version. */
-  grunt.registerTask('dist', ['test', 'bump', 'build', '_git:dist']);
-  /* Distribute a new minor version. */
-  grunt.registerTask('dist:minor', ['test', 'bump:minor', 'build', '_git:dist']);
-  /* Distribute a new major version. */
-  grunt.registerTask('dist:major', ['test', 'bump:major', 'build', '_git:dist']);
+  /* Distribute a new version. */
+  grunt.registerTask('release', 'Test, bump, build and release.', function(type) {
+    grunt.task.run([
+      'test',
+      'bump-only:' + (type || 'patch'),
+      'build',
+      'bump-commit'
+    ]);
+  });
 
   /* test and build by default. */
   grunt.registerTask('default', ['test', 'build']);
