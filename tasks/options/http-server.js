@@ -3,7 +3,7 @@ module.exports = {
     host: '127.0.0.1'
   },
   test: {
-    port: 80,
+    port: process.env.SANDBOX_PORT || 8765,
     runInBackground: true
   },
   demo: {

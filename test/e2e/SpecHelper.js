@@ -1,5 +1,6 @@
 /* global browser, global, protractor */
-var sandboxUrl = 'http://localhost:80/test/e2e/env/index.html';
+var port = process.env.SANDBOX_PORT || 8765;
+var sandboxUrl = 'http://localhost:' + port + '/test/e2e/env/index.html';
 var i = 0;
 
 global.By = protractor.By;
