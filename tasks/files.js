@@ -40,7 +40,7 @@ files.testEnvKarma = files.testEnvKarma.concat(files.source);
 files.testEnv = JSON.parse(JSON.stringify(files.testEnvKarma));
 files.demoEnv = JSON.parse(JSON.stringify(files.testEnv));
 
-files.testEnvKarma.splice(0, 0, 'bower_components/jquery/jquery.js');
+files.testEnvKarma.splice(0, 0, 'bower_components/jquery/dist/jquery.js');
 
 if (typeof module === 'object') {
   module.exports = files;
