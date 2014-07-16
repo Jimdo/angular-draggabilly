@@ -1,5 +1,5 @@
 /* global browser, global, protractor */
-var sandboxUrl = 'http://localhost:8765/test/e2e/env/index.html';
+var sandboxUrl = 'http://localhost:80/test/e2e/env/index.html';
 var i = 0;
 
 global.By = protractor.By;

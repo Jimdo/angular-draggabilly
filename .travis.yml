@@ -29,6 +29,3 @@ addons:
 script:
   - grunt test:travis
   - grunt test:sauce
-
-after_script:
-  - ./scripts/print_logs.sh

@@ -3,7 +3,7 @@ module.exports = {
     host: '127.0.0.1'
   },
   test: {
-    port: 8765,
+    port: 80,
     runInBackground: true
   },
   demo: {
