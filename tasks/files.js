@@ -22,7 +22,13 @@ var files = {
   ],
   testEnvKarma: [
     'bower_components/angular/angular.js',
-    'bower_components/angular-mocks/angular-mocks.js'
+    'bower_components/angular-mocks/angular-mocks.js',
+    'bower_components/classie/classie.js',
+    'bower_components/eventEmitter/EventEmitter.js',
+    'bower_components/eventie/eventie.js',
+    'bower_components/get-style-property/get-style-property.js',
+    'bower_components/get-size/get-size.js',
+    'bower_components/draggabilly/draggabilly.js'
   ],
 
   package: ['package.json', 'bower.json']

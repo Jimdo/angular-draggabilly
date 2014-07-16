@@ -2,7 +2,7 @@
 var sandboxUrl = 'http://localhost:8765/test/e2e/env/';
 
 global.By = protractor.By;
-global.prot = protractor.getInstance();
+global.ptor = protractor.getInstance();
 
 beforeEach(function() {
   browser.get(sandboxUrl);

@@ -12,7 +12,24 @@
 <body>
   <!--       THIS IS NOT A SANDBOX, IT'S FOR E2E TESTING!      -->
   <!-- PLEASE USE demo/index.html IF YOU'D LIKE TO PLAY AROUND -->
-  <div id="draggie" draggabilly></div>
+  <div id="draggie" draggabilly="" draggie-disabled="!dragEnabled">Drag me</div>
+  <div id="snapDraggie" draggabilly="" draggie-grid="[50, 50]" style="position: absolute; left: 200px; top: 50px;">Drag me in a grid</div>
+
+  <div style="position: absolute; top: 100px;" id="draggieVertical" draggabilly="" draggie-axis="y">Drag me vertically</div>
+
+  <div style="position: absolute; top: 0px; left: 200px;" id="draggieHorizontal" draggabilly="" draggie-axis="x">Drag me horizontally</div>
+
+  <div id="container" style="position: absolute; top: 200px; left: 200px; width: 200px; height: 200px; background-color: yellow;">
+    <div style="width: 20px; height: 20px;" id="draggieInside" draggabilly="" draggie-containment="'#container'">a</div>
+    <div style="width: 20px; height: 20px;" id="draggieInside2" draggabilly="" draggie-containment="true">b</div>
+  </div>
+
+  <div id="handleDraggie" draggabilly="" draggie-handle="#handle" style="position: absolute; background-color: blue; top: 200px; left: 400px; width: 100px; height: 100px;">
+    <div id="handle" style="background-color: red; width: 20px; height: 20px; position: relative; left: 40px; top: 40px;"></div>
+  </div>
+
+  <input id="events" type="text" ng-model="evts" disabled="disabled"/>
+  <input type="checkbox" id="toggleDrag" ng-model="dragEnabled" checked="checked"/>
   <script src="/bower_components/jquery/jquery.js"></script>
   <script>
     /* jshint indent: false */
