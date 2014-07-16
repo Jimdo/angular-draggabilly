@@ -29,4 +29,4 @@ addons:
 
 script:
   - grunt test:travis
-  - grunt test:sauce
+  - grunt test:e2e --browser=firefox
