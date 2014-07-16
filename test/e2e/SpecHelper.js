@@ -3,7 +3,7 @@ var sandboxUrl = 'http://localhost:80/test/e2e/env/index.html';
 var i = 0;
 
 global.By = protractor.By;
-global.prot = protractor.getInstance();
+global.ptor = protractor.getInstance();
 
 beforeEach(function() {
   i = 0;
