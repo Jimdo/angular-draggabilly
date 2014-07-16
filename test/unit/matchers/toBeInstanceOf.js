@@ -1,4 +1,3 @@
-/* globals jasmine */
 beforeEach(function() {
   'use strict';
 
