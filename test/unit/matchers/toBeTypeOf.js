@@ -1,18 +1,23 @@
+/* globals jasmine */
 beforeEach(function() {
-  this.addMatchers({
-    toBeTypeOf: function(expected) {
-      var actual, notText, objType;
+  'use strict';
 
-      actual = this.actual;
-      notText = this.isNot ? 'not ' : '';
-      expected = expected.toLowerCase();
-      objType = typeof actual;
+  jasmine.addMatchers({
+    toBeTypeOf: function() {
+      return {
+        compare: function(actual, expected) {
+          if (typeof expected !== 'string') {
+            expected = expected.constructor.name;
+          }
 
-      this.message = function() {
-        return 'Expected ' + actual + notText + ' to be type of ' + expected;
+          var pass = typeof actual === expected.toLowerCase();
+
+          return {
+            pass: pass,
+            message: jasmine.pp(actual) + ' is ' + (!pass ? 'not ' : '') + 'of type ' + expected
+          };
+        }
       };
-     
-      return objType === expected;
     }
   });
 });
