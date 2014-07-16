@@ -1,13 +1,16 @@
 {
   "name": "angular-draggabilly",
   "version": "0.0.0",
-  "description": "A starting point for angular directives.",
+  "description": "An angular wrapper for Draggabilly",
   "homepage": "https://github.com/Jimdo/angular-draggabilly",
-  "author": "Jimdo, Hannes Diercks <hannes.diercks@jimdo.com>",
+  "author": "Jimdo GmbH",
   "main": "Gruntfile.js",
   "keywords": [
     "directive",
-    "angular"
+    "angular",
+    "dnd",
+    "drag and drop",
+    "Draggabilly"
   ],
   "scripts": {
     "test": "grunt test",

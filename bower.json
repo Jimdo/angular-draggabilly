@@ -1,15 +1,20 @@
 {
   "name": "angular-draggabilly",
   "version": "0.0.0",
-  "authors": [],
-  "description": "A starting point for angular directives.",
+  "authors": [
+    "Joscha Feth <joscha@feth.com>"
+  ],
+  "description": "An angular wrapper for Draggabilly",
   "main": "dist/angular-draggabilly.js",
   "keywords": [
     "directive",
-    "angular"
+    "angular",
+    "dnd",
+    "drag and drop",
+    "Draggabilly"
   ],
   "license": "MIT",
-  "private": true,
+  "private": false,
   "devDependencies": {
     "angular-mocks": "~1.2.20",
     "jquery": "~2.0.3"
