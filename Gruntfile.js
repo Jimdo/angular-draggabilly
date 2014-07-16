@@ -45,6 +45,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test:e2e', ['_test:beforeEach', 'http-server:test', 'protractor:single']);
   /* Execute karma tests with Firefox and PhantomJS. */
   grunt.registerTask('test:travis', ['_test:beforeEach', 'karma:travis']);
+  grunt.registerTask('test:sauce', ['_test:beforeEach', 'http-server:test', 'protractor:sauce']);
 
   /* Build dist files. */
   grunt.registerTask('build', ['ngtemplates', '_build:less', 'concat:dist', 'uglify']);

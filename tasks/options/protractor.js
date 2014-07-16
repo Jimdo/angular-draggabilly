@@ -3,33 +3,36 @@ var files = require('../files');
 var glob = require('glob');
 
 var jar = glob.sync('node_modules/protractor/selenium/selenium-server-standalone-2.*.jar')[0];
-
-var options = {
-  args: {
-    browser: 'chrome',
-    capabilities: {
-      'browserName': 'chrome'
-    },
-    specs: [files.e2eTests],
-    jasmineNodeOpts: {
-      showColors: true,
-      defaultTimeoutInterval: 30000
-    }
-  },
-  configFile: 'test/e2e/env/config.js',
-  keepAlive: true
-};
-
-var singleOptions = grunt.util._.clone(options);
-singleOptions.args.seleniumServerJar = jar;
-var tddoptions = grunt.util._.clone(options);
-singleOptions.args.seleniumAddress = 'http://localhost:4444/wd/hub';
+var chromeDriver = process.cwd() + '/node_modules/protractor/selenium/chromedriver';
 
 module.exports = {
   single: {
-    options: singleOptions
+    options: {
+      configFile: 'test/e2e/env/config.js',
+      args: {
+        chromeDriver: chromeDriver,
+        specs: [files.e2eTests],
+        seleniumServerJar: jar
+      }
+    }
   },
   tdd: {
-    options: tddoptions
+    options: {
+      configFile: 'test/e2e/env/config.js',
+      args: {
+        specs: [files.e2eTests],
+        seleniumAddress: 'http://localhost:4444/wd/hub'
+      }
+    }
+  },
+  sauce: {
+    options: {
+      configFile: 'test/e2e/env/config.js',
+      args: {
+        specs: [files.e2eTests],
+        sauceUser: process.env.SAUCE_USERNAME,
+        sauceKey: process.env.SAUCE_ACCESS_KEY
+      }
+    }
   }
 };

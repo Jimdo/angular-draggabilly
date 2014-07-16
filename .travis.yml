@@ -2,6 +2,13 @@ language: node_js
 node_js:
   - "0.11"
 
+env:
+  global:
+    - secure: "eS9Tr6YyE+4NruSrjWXdjOLOAhPinDSKAbhSMaciXKhBO07YWWC/9EWkfPllffIO2GAbXnnpVYKngzC5AveIND89mCQ0cCfijUX9P6HDpQEywfI6m/qoZCNdunwWfeLkedhRYrc3fsbKta1NmrX4jKWI9AZ/fplEn7xtFNuYy2g="
+    - secure: "CMudeWadxVb3XRcDH/9m2FPl9sRFshwWfGJNUkrwmT3/uqiWykLzpH7gQZRL5fB3yyha+FwioAJmBzimnvd6xYgFUjqFXJakTD/O0KH/tw/G1rCvVZOenGYA8II18chl6kb3yZRtEUxLA0r9zNeFLd+1cO1wQBFa/hWgA+YwqXg="
+    - LOGS_DIR=/tmp/protractor-build/logs
+    - BROWSER_PROVIDER_READY_FILE=/tmp/sauce-connect-ready
+
 before_install:
   - npm install -g bower grunt-cli
 
@@ -10,11 +17,18 @@ install:
   - bower install
 
 before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+  - mkdir -p $LOGS_DIR
+  - ./scripts/sauce_connect_setup.sh
+  - ./scripts/wait_for_browser_provider.sh
+  # - export DISPLAY=:99.0
+  # - sh -e /etc/init.d/xvfb start
   # - ./node_modules/protractor/bin/webdriver-manager update --standalone
   # - node scripts/web-server.js &
   # - ./node_modules/protractor/bin/webdriver-manager start &
 
 script:
   - grunt test:travis
+  - grunt test:sauce
+
+after_script:
+  - ./scripts/print_logs.sh
