@@ -67,6 +67,7 @@
         "angular",
         "jasmine",
         "jQuery",
+        "$",
         "beforeEach",
         "afterEach",
         "describe",
