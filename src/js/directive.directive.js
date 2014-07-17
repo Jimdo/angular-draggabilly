@@ -1,5 +1,4 @@
 (function(Draggabilly) {
-  'use strict';
 
   /** @const */
   var NAME = 'draggabilly';
