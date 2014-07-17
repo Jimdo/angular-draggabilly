@@ -6,7 +6,7 @@ describe 'e2e setup', ->
 
   it 'should use the helper', ->
     expect(Helper.help()).toBe '... I need somebody.'
-    expect(Helper.help()).toBe 'not just anybody!'
+    expect(Helper.help(1)).toBe 'not just anybody!'
 
   it 'should find our directive', ->
     headline = element By.tagName 'h1'

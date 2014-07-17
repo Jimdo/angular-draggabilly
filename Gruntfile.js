@@ -14,6 +14,7 @@ module.exports = function(grunt) {
   var config  = Helpers.config;
   var _       = grunt.util._;
 
+  /* Task configuration is in ./tasks/options - load here */
   config = _.extend(config, Helpers.loadConfig('./tasks/options/'));
 
   /* Load grunt tasks from NPM packages */
@@ -30,27 +31,52 @@ module.exports = function(grunt) {
   ]);
 
   /* "Public" Tasks */
+  grunt.registerTask(
+    'tdd',
+    'Watch source and test files and execute tests on change',
+    function(suite) {
+      var tasks = [];
+      var watcher = '';
+      if (!suite || suite === 'unit') {
+        tasks.push('karma:watch:start');
+        watcher = 'watch:andtestunit';
+      }
+      if (!suite || suite === 'e2e') {
+        tasks.push('http-server:test', 'shell:startsilenium');
+        watcher = 'watch:andteste2e';
+      }
+      if (!suite) {
+        watcher = 'watch:andtestboth';
+      }
+      tasks.push(watcher);
+      grunt.task.run(tasks);
+    }
+  );
 
-  /* Watch source and test files and execute karma unit tests on change. */
-  grunt.registerTask('tdd', ['karma:watch:start', 'http-server:test', 'shell:startsilenium', 'watch:andtestboth']);
-  grunt.registerTask('tdd:e2e', ['http-server:test', 'shell:startsilenium', 'watch:andteste2e']);
-  grunt.registerTask('tdd:unit', ['karma:watch:start', 'watch:andtestunit']);
+  grunt.registerTask('demo', 'Start the demo app', ['http-server:demo']);
 
-  /* Alias for starting the demo server */
-  grunt.registerTask('demo', ['http-server:demo']);
+  grunt.registerTask(
+    'test',
+    'Execute all the tests',
+    function(suite) {
+      var tasks = ['_test:beforeEach'];
+      if (!suite || suite === 'unit') {
+        process.env.defaultBrowsers = 'Firefox,Chrome';
+        tasks.push('karma:all');
+      }
+      if (!suite || suite === 'e2e') {
+        tasks.push('http-server:test', 'protractor:single');
+      }
+      grunt.task.run(tasks);
+    }
+  );
 
-  /* Execute all tests. */
-  grunt.registerTask('test', ['_test:beforeEach', 'karma:all', 'http-server:test', 'protractor:single']);
-  /* Execute e2e tests. */
-  grunt.registerTask('test:e2e', ['_test:beforeEach', 'http-server:test', 'protractor:single']);
-  grunt.registerTask('test:unit', ['_test:beforeEach', 'karma:all']);
-  /* Execute karma tests with Firefox and PhantomJS. */
-  grunt.registerTask('test:travis', ['_test:beforeEach', 'karma:travis']);
+  grunt.registerTask(
+    'build',
+    'Build dist files',
+    ['ngtemplates', '_build:less', 'concat:dist', 'uglify']
+  );
 
-  /* Build dist files. */
-  grunt.registerTask('build', ['ngtemplates', '_build:less', 'concat:dist', 'uglify']);
-
-  /* Distribute a new version. */
   grunt.registerTask('release', 'Test, bump, build and release.', function(type) {
     grunt.task.run([
       'test',
@@ -60,8 +86,7 @@ module.exports = function(grunt) {
     ]);
   });
 
-  /* test and build by default. */
-  grunt.registerTask('default', ['test', 'build']);
+  grunt.registerTask('default', 'Test and Build', ['test', 'build']);
 
   grunt.initConfig(config);
 };

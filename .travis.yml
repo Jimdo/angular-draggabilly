@@ -2,6 +2,12 @@ language: node_js
 node_js:
   - "0.11"
 
+env:
+  global:
+    - PROTRACTOR_BROWSERS=firefox
+    - KARMA_BROWSERS=Firefox,PhantomJS
+
+
 before_install:
   - npm install -g bower grunt-cli
 
@@ -14,5 +20,4 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 
 script:
-  - grunt test:travis
-  - grunt test:e2e --browser=firefox
+  - grunt test

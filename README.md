@@ -81,6 +81,14 @@ Grunt Tasks
  * `grunt build`: Just build
  * `grunt release`: Test, build, bump patch version, commit, add version tag and push
 
+ `test` tasks have a `--browsers` option to specify the browsers you want to use
+
+ Browsers can also be set by the following environment-variables
+ ```
+   PROTRACTOR_BROWSERS=Firefox,Chrome
+   KARMA_BROWSERS=Firefox,PhantomJS
+ ```
+
 _See Gruntfile.js and tasks/options for all task details._
 
 
