@@ -4,6 +4,13 @@ var lf = grunt.util.linefeed;
 var fs = require('fs');
 var Helpers = {};
 
+/* Overwrite browser env variables if grunt options are set */
+var browsers = grunt.option('browser') || grunt.option('browsers');
+if (browsers) {
+  process.env.KARMA_BROWSERS = browsers;
+  process.env.PROTRACTOR_BROWSERS = browsers;
+}
+
 Helpers.config = {
   pkg: grunt.file.readJSON('./package.json'),
   env: process.env

@@ -1,6 +1,6 @@
 var files = require('../files');
 var grunt = require('grunt');
-var browsers = grunt.option('browser') || grunt.option('browsers') || process.env.KARMA_BROWSERS;
+var browsers = process.env.KARMA_BROWSERS;
 
 module.exports = {
   options: {
