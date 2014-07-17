@@ -7,13 +7,11 @@ env:
     - PROTRACTOR_BROWSERS=firefox
     - KARMA_BROWSERS=Firefox,PhantomJS
 
-
 before_install:
   - npm install -g bower grunt-cli
 
 install:
   - npm install
-  - bower install
 
 before_script:
   - export DISPLAY=:99.0
