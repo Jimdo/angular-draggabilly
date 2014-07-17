@@ -4,8 +4,7 @@ module.exports = {
   options: {
     files: files.package,
     updateConfigs: ['pkg'],
-    commit: false,
-    createTag: false,
-    push: false
+    commitFiles: files.package.concat([files.dists]),
+    pushTo: 'origin'
   }
 };
