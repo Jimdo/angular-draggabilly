@@ -23,7 +23,7 @@ module.exports = function(grunt) {
   /* "Helper" Tasks */
   grunt.registerTask('_test:beforeEach', []);
   grunt.registerTask('_git:dist', ['gitcommit:dist', 'gittag:dist', 'gitpush:dist', 'gitpush:disttags']);
-  grunt.registerTask('_protractor:start', ['http-server:test', 'protractor']);
+  grunt.registerTask('_protractor:start', ['http-server:test', 'protractor:single']);
 
   /* "Public" Tasks */
 
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
   /* Execute all tests. */
   grunt.registerTask('test', ['jshint', '_test:beforeEach', 'karma:all', '_protractor:start']);
   /* Execute e2e tests. */
-  grunt.registerTask('test:e2e', ['_test:beforeEach', 'http-server:test', 'protractor:single']);
+  grunt.registerTask('test:e2e', ['_test:beforeEach', '_protractor:start']);
   /* Execute karma tests with Firefox and PhantomJS. */
   grunt.registerTask('test:travis', ['_test:beforeEach', 'karma:travis']);
 
