@@ -2,9 +2,9 @@
  * angular-draggabilly v0.0.0
  * https://github.com/Jimdo/angular-draggabilly
  *
- * A starting point for angular directives.
+ * An angular wrapper for Draggabilly
  *
- * Copyright 2014, Jimdo, Hannes Diercks <hannes.diercks@jimdo.com>
+ * Copyright 2014, Jimdo GmbH
  * Released under the MIT license
  */
 (function(angular, undefined) {
