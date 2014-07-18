@@ -5,6 +5,8 @@ Angular Draggabilly directive - drag and drop for Angular
 
 This is an angular wrapper to [Draggabilly](https://github.com/desandro/draggabilly).
 
+Does not create its own scope and does not pollute the parent scope.
+
 And for all the ones that are curious about whether this one needs jquery-ui:
 > look ma, no jQuery!
 
