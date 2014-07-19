@@ -19,6 +19,7 @@
         restrict: 'A',
         scope: false,
         link: function($scope, $element, attrs) {
+          attrs = attrs || {};
           function getPrefixedAttr(name) {
             var attrName = PREFIX + name.substr(0,1).toUpperCase() + name.substr(1);
             return attrs[attrName];
