@@ -17,6 +17,21 @@ Usage
 <div draggabilly>Drag me</div>
 ```
 
+### Dependencies
+Angular Draggabilly needs the Draggabilly library and its dependencies.
+* You can either install everything via bower (and if your package management resolves transitive packages you are good to go)
+* or you can use the [packaged version of Draggabilly](http://draggabilly.desandro.com/draggabilly.pkgd.min.js) and the [dist version of Angular Draggabilly](https://raw.githubusercontent.com/Jimdo/angular-draggabilly/master/dist/angular-draggabilly.min.js).
+* or in the case of manual install, just add:
+```javascript
+'bower_components/classie/classie.js',
+'bower_components/eventEmitter/EventEmitter.js',
+'bower_components/eventie/eventie.js',
+'bower_components/get-style-property/get-style-property.js',
+'bower_components/get-size/get-size.js',
+'bower_components/draggabilly/draggabilly.js',
+'bower_components/angular-draggabilly/dist/angular-draggabilly.js'
+```
+
 ### Options
 * locking to axes
 ```html
