@@ -21,16 +21,7 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   grunt.loadTasks('tasks');
 
-  /* "Helper" Tasks */
-  grunt.registerTask('_test:beforeEach', ['jshint', 'ngtemplates']);
-  grunt.registerTask('_build:less', [
-    'less:dist',
-    'less:distmin',
-    'concat:bannerToDistStyle',
-    'concat:bannerToDistStyleMin'
-  ]);
 
-  /* "Public" Tasks */
   grunt.registerTask(
     'tdd',
     'Watch source and test files and execute tests on change',
@@ -59,7 +50,7 @@ module.exports = function(grunt) {
     'test',
     'Execute all the tests',
     function(suite) {
-      var tasks = ['_test:beforeEach'];
+      var tasks = ['jshint', 'ngtemplates'];
       if (!suite || suite === 'unit') {
         process.env.defaultBrowsers = 'Firefox,Chrome';
         tasks.push('karma:all');
@@ -74,7 +65,15 @@ module.exports = function(grunt) {
   grunt.registerTask(
     'build',
     'Build dist files',
-    ['ngtemplates', '_build:less', 'concat:dist', 'uglify']
+    [
+      'ngtemplates',
+      'less:dist',
+      'less:distmin',
+      'concat:bannerToDistStyle',
+      'concat:bannerToDistStyleMin',
+      'concat:dist',
+      'uglify'
+    ]
   );
 
   grunt.registerTask('release', 'Test, bump, build and release.', function(type) {
@@ -86,7 +85,7 @@ module.exports = function(grunt) {
     ]);
   });
 
-  grunt.registerTask('default', 'Test and Build', ['test', 'build']);
+  grunt.registerTask('default', 'Test and Build', ['test']);
 
   grunt.initConfig(config);
 };
