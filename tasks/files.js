@@ -35,10 +35,11 @@ files.testEnvKarma = files.testEnvKarma.concat(files.source);
 files.testEnvKarma.push(files.allPartialsCombined);
 
 files.testEnv = JSON.parse(JSON.stringify(files.testEnvKarma));
-files.testEnv.splice(0, 0, 'bower_components/less/dist/less-1.6.1.js');
+files.testEnv.unshift('bower_components/less/dist/less-1.7.4.js');
 files.demoEnv = JSON.parse(JSON.stringify(files.testEnv));
 
-files.testEnvKarma.splice(0, 0, 'bower_components/jquery/jquery.js');
+files.testEnvKarma.unshift('bower_components/jquery/dist/jquery.js');
+files.testEnvKarma.unshift('bower_components/jasmine-moar-matchers/*.js');
 
 if (typeof module === 'object') {
   module.exports = files;

@@ -12,10 +12,11 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "angular": "~1.2.8",
-    "angular-mocks": "~1.2.9",
-    "jquery": "~2.0.3",
-    "less": "~1.6.1"
+    "jasmine-moar-matchers": "https://gist.github.com/8549144a6969317efa11.git",
+    "angular": "~1.2.21",
+    "angular-mocks": "~1.2.21",
+    "jquery": "~2.1.1",
+    "less": "~1.7.4"
   },
   "ignore": [
     "**/.*",

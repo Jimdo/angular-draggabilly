@@ -1,5 +1,4 @@
 var files = require('../files');
-var grunt = require('grunt');
 var browsers = process.env.KARMA_BROWSERS;
 
 module.exports = {
@@ -21,7 +20,9 @@ module.exports = {
   },
   watch: {
     options: {
-      singleRun: false
+      background: true,
+      singleRun: false,
+      autoWatch: false
     }
   }
 };
