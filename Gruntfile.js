@@ -44,7 +44,7 @@ module.exports = function(grunt) {
     }
   );
 
-  grunt.registerTask('demo', 'Start the demo app', ['http-server:demo']);
+  grunt.registerTask('demo', 'Start the demo app', ['shell:opendemo', 'http-server:demo']);
 
   grunt.registerTask(
     'test',
