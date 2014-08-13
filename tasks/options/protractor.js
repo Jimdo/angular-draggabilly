@@ -8,7 +8,7 @@ var jar = glob.sync('node_modules/protractor/selenium/selenium-server-standalone
 var chromeDriver = process.cwd() + '/node_modules/protractor/selenium/chromedriver';
 
 var options = {
-  debug: debug,
+  debug: isDebug,
   configFile: 'test/e2e/env/config.js',
   args: {}
 };
