@@ -71,7 +71,7 @@ You want to look at name, description, homepage, author, keywords, main and repo
 Grunt Tasks
 -----------
 
- * `grunt`: Execute tests and build dist
+ * `grunt`: Execute tests
  * `grunt test`: Just test
  * `grunt test:e2e`: Just test end to end
  * `grunt test:unit`: Just test unit
