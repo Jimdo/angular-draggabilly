@@ -28,7 +28,13 @@
     <div id="handle" style="background-color: red; width: 20px; height: 20px; position: relative; left: 40px; top: 40px;"></div>
   </div>
 
-  <input id="events" type="text" ng-model="evts" disabled="disabled"/>
+  <div id="draggieNone" style="position: absolute; top: 400px;" draggabilly="" draggie-events="">Drag me w/o events</div>
+  <div id="draggieStart" style="position: absolute; top: 420px;" draggabilly="" draggie-events="start">Drag me w/ start event</div>
+  <div id="draggieMove" style="position: absolute; top: 440px;" draggabilly="" draggie-events="move">Drag me w/ move event</div>
+  <div id="draggieEnd" style="position: absolute; top: 460px;" draggabilly="" draggie-events="end">Drag me w/ end event</div>
+  <div id="draggieStartEnd" style="position: absolute; top: 480px;" draggabilly="" draggie-events="start, end">Drag me w/ start and end event</div>
+
+  <input id="events" type="text" ng-model="evts"/>
   <input type="checkbox" id="toggleDrag" ng-model="dragEnabled" checked="checked"/>
   <script src="/bower_components/jquery/dist/jquery.js"></script>
   <script>

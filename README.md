@@ -50,6 +50,7 @@ $rootScope.$on('draggie.start', handler);
 $rootScope.$on('draggie.move', handler);
 $rootScope.$on('draggie.end', handler);
 ```
+By default, all events are emitted, however eventing can be disabled (and should be if not used, because it saves quite a few digest cycles) by adding `draggie-events=""` or selectively enabled by using `start`, `move` and `end`, e.g. `draggie-events="start,end"`.
 
 Demo
 ----

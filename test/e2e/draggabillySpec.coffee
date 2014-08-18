@@ -1,6 +1,6 @@
 Helper = require './SpecHelper'
 
-describe 'dragging', ->
+describe 'with draggabilly it', ->
 
   dragTo = (element, deltaX = 0, deltaY = 0) ->
     ptor.actions().
@@ -9,13 +9,29 @@ describe 'dragging', ->
       mouseMove({x: deltaX, y: deltaY}).
       mouseUp().
       perform()
+
   expectLoc = (element, expectedX, expectedY, next = null) ->
     element.getLocation().then (location) ->
       expect(location.x).toBe expectedX
       expect(location.y).toBe expectedY
       next?()
 
-  describe 'standard', ->
+  eventLog = -> (element By.id 'events')
+  eventLog.clear = ->
+    eventLog().clear()
+  eventLog.get = ->
+    eventLog().getAttribute('value')
+
+  expectEventLog = (expectedData, next = null) ->
+    eventLog.get().then (jsonString) ->
+      events = JSON.parse jsonString
+      expect(events).toEqual expectedData
+      next?()
+
+  beforeEach ->
+    eventLog.clear()
+
+  describe 'generally', ->
 
     draggie = null
     beforeEach ->
@@ -33,9 +49,7 @@ describe 'dragging', ->
 
     it "should fire drag events", (done) ->
       dragTo(draggie, 100, 100).then ->
-        (element By.id 'events').getAttribute('value').then (jsonString) ->
-          events = JSON.parse jsonString
-          expect(events).toEqual [
+        expectEventLog [
             {
               type : 'start'
               id : 'draggie'
@@ -51,22 +65,21 @@ describe 'dragging', ->
               id : 'draggie'
               pos : [ 100, 100 ]
             }
-          ]
-          done()
+          ], done
 
     it "should be possible to disable dragging", (done) ->
       (element By.id 'toggleDrag').click().then ->
         dragTo(draggie, 100, 100).then ->
           expectLoc draggie, 0, 0, done
 
-    describe 'should be possible to fix axes', ->
+    describe 'should be possible to fix', ->
 
-      it 'should fix the x-axis', (done) ->
+      it 'the x-axis', (done) ->
         vDraggie = element By.id 'draggieVertical'
         dragTo(vDraggie, 200, 200).then ->
           expectLoc vDraggie, 0, 300, done
 
-      it 'should fix the y-axis', (done) ->
+      it 'the y-axis', (done) ->
         hDraggie = element By.id 'draggieHorizontal'
         dragTo(hDraggie, 200, 200).then ->
           expectLoc hDraggie, 400, 0, done
@@ -100,3 +113,71 @@ describe 'dragging', ->
       snapDraggie = element By.id 'snapDraggie'
       dragTo(snapDraggie, 26, 26).then ->
         expectLoc snapDraggie, 250, 100, done
+
+  describe 'eventing', ->
+    it 'should be possible to disable eventing', (done) ->
+      draggieNone = element By.id 'draggieNone'
+      dragTo(draggieNone, 300, 300).then ->
+        expect(eventLog.get()).toBe ''
+        done()
+
+    describe 'should be possible to only enable', ->
+
+      it 'the start event', (done) ->
+        id = 'draggieStart'
+        draggie = element By.id id
+        dragTo(draggie, 300, 300).then ->
+          expectEventLog [
+              {
+                type : 'start'
+                id : id
+                pos : [ 0, 420 ]
+              }
+            ], done
+
+      it 'the move event', (done) ->
+        id = 'draggieMove'
+        draggie = element By.id id
+        dragTo(draggie, 300, 300).then ->
+          dragTo(draggie, 100, 100).then ->
+            expectEventLog [
+                {
+                  type : 'move'
+                  id : id
+                  pos : [ 300, 740 ]
+                }
+                {
+                  type : 'move'
+                  id : id
+                  pos : [ 400, 840 ]
+                }
+              ], done
+
+      it 'the end event', (done) ->
+        id = 'draggieEnd'
+        draggie = element By.id id
+        dragTo(draggie, 300, 300).then ->
+          expectEventLog [
+              {
+                type : 'end'
+                id : id
+                pos : [ 300, 760 ]
+              }
+            ], done
+
+      it 'the start and end event', (done) ->
+        id = 'draggieStartEnd'
+        draggie = element By.id id
+        dragTo(draggie, 300, 300).then ->
+          expectEventLog [
+              {
+                type : 'start'
+                id : id
+                pos : [ 0, 480 ]
+              }
+              {
+                type : 'end'
+                id : id
+                pos : [ 300, 780 ]
+              }
+            ], done

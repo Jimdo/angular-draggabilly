@@ -12,6 +12,16 @@
     'dragEnd': 'end'
   };
 
+  /** @const */
+  var rDragEvents = {
+    'start': 'dragStart',
+    'move': 'dragMove',
+    'end': 'dragEnd'
+  };
+
+  /** @const */
+  var defaultEvents = [dragEvents.dragStart, dragEvents.dragMove, dragEvents.dragEnd];
+
   /* global draggabilly */
   draggabilly.directive(NAME, [
     function() {
@@ -54,6 +64,20 @@
             }
           }
 
+          // enable specific events
+          var events = getPrefixedAttr('events');
+          if (typeof events !== 'undefined') {
+            var allegedEvents = events.toLowerCase().replace(/\s+/g, '').split(/,/);
+            events = [];
+            angular.forEach(allegedEvents, function(allegedEvent) {
+              if (typeof rDragEvents[allegedEvent] !== 'undefined' && events.indexOf(allegedEvent) === -1) {
+                events.push(allegedEvent);
+              }
+            });
+          } else {
+            events = defaultEvents;
+          }
+
           var draggie = new Draggabilly($element[0], options);
 
           // disabled attribute
@@ -66,7 +90,8 @@
             }
           });
 
-          angular.forEach(dragEvents, function(targetEventPostfix, sourceEventName) {
+          angular.forEach(events, function(targetEventPostfix) {
+            var sourceEventName = rDragEvents[targetEventPostfix];
             draggie.on(sourceEventName, function(draggieInstance, event, pointer) {
               $scope.$apply(function(scope) {
                 scope.$emit(PREFIX + '.' + targetEventPostfix, draggieInstance, event, pointer);
