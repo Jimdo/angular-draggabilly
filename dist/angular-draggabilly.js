@@ -1,5 +1,5 @@
 /*!
- * angular-draggabilly v0.0.1
+ * angular-draggabilly v0.0.2
  * https://github.com/Jimdo/angular-draggabilly
  *
  * An angular wrapper for Draggabilly
@@ -7,15 +7,13 @@
  * Copyright 2014, Jimdo GmbH
  * Released under the MIT license
  */
-(function(angular, undefined) {
+(function(angular) {
   'use strict';
-
   // src/js/helper.module.js
   var draggabilly = angular.module('draggabilly', []);
 
   // src/js/directive.directive.js
   (function(Draggabilly) {
-    'use strict';
   
     /** @const */
     var NAME = 'draggabilly';
@@ -27,12 +25,23 @@
       'dragStart': 'start',
       'dragMove': 'move',
       'dragEnd': 'end'
-    };  draggabilly.directive(NAME, [
+    };
+  
+    /** @const */
+    var rDragEvents = {
+      'start': 'dragStart',
+      'move': 'dragMove',
+      'end': 'dragEnd'
+    };
+  
+    /** @const */
+    var defaultEvents = [dragEvents.dragStart, dragEvents.dragMove, dragEvents.dragEnd];  draggabilly.directive(NAME, [
       function() {
         return {
           restrict: 'A',
           scope: false,
           link: function($scope, $element, attrs) {
+            attrs = attrs || {};
             function getPrefixedAttr(name) {
               var attrName = PREFIX + name.substr(0,1).toUpperCase() + name.substr(1);
               return attrs[attrName];
@@ -67,6 +76,20 @@
               }
             }
   
+            // enable specific events
+            var events = getPrefixedAttr('events');
+            if (typeof events !== 'undefined') {
+              var allegedEvents = events.toLowerCase().replace(/\s+/g, '').split(/,/);
+              events = [];
+              angular.forEach(allegedEvents, function(allegedEvent) {
+                if (typeof rDragEvents[allegedEvent] !== 'undefined' && events.indexOf(allegedEvent) === -1) {
+                  events.push(allegedEvent);
+                }
+              });
+            } else {
+              events = defaultEvents;
+            }
+  
             var draggie = new Draggabilly($element[0], options);
   
             // disabled attribute
@@ -79,7 +102,8 @@
               }
             });
   
-            angular.forEach(dragEvents, function(targetEventPostfix, sourceEventName) {
+            angular.forEach(events, function(targetEventPostfix) {
+              var sourceEventName = rDragEvents[targetEventPostfix];
               draggie.on(sourceEventName, function(draggieInstance, event, pointer) {
                 $scope.$apply(function(scope) {
                   scope.$emit(PREFIX + '.' + targetEventPostfix, draggieInstance, event, pointer);
@@ -91,4 +115,4 @@
       }
     ]);
   })(window.Draggabilly);
-})(angular);
+})(window.angular);
