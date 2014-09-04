@@ -17,5 +17,9 @@ module.exports = {
   andtestboth: {
     files: bothTestfiles,
     tasks: ['ngtemplates', 'karma:watch:run', 'protractor:tdd']
+  },
+  partials: {
+    files: files.allPartials,
+    tasks: ['ngtemplates']
   }
 };

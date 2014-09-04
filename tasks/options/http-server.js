@@ -9,6 +9,7 @@ module.exports = {
     runInBackground: true
   },
   demo: {
-    port: optPort || process.env.DEMO_PORT || 8000
+    port: optPort || process.env.DEMO_PORT || 8000,
+    runInBackground: true
   }
 };
