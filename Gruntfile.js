@@ -33,7 +33,7 @@ module.exports = function(grunt) {
         watcher = 'watch:andtestunit';
       }
       if (!suite || suite === 'e2e') {
-        tasks.push('http-server:test', 'shell:startsilenium');
+        tasks.push('connect:test', 'shell:startsilenium');
         watcher = 'watch:andteste2e';
       }
       if (!suite) {
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
     }
   );
 
-  grunt.registerTask('demo', 'Start the demo app', ['shell:opendemo', 'http-server:demo', 'watch:partials']);
+  grunt.registerTask('demo', 'Start the demo app', ['connect:demo', 'parallel:watchdemo']);
 
   grunt.registerTask(
     'test',
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
         tasks.push('karma:all');
       }
       if (!suite || suite === 'e2e') {
-        tasks.push('http-server:test', 'protractor:single');
+        tasks.push('connect:test', 'protractor:single');
       }
       grunt.task.run(tasks);
     }

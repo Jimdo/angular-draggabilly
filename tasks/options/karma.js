@@ -11,7 +11,7 @@ module.exports = {
       'jasmine'
     ],
     singleRun: true,
-    files: files.testEnvKarma.concat([files.unitTests])
+    files: files.environments.karma.concat([files.unitTests])
   },
   all: {
     options: {

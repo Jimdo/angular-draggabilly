@@ -2,7 +2,9 @@
 var grunt = require('grunt');
 var lf = grunt.util.linefeed;
 var fs = require('fs');
+var path = require('path');
 var Helpers = {};
+var base = process.cwd();
 
 /* Overwrite browser env variables if grunt options are set */
 var browsers = grunt.option('browser') || grunt.option('browsers');
@@ -49,6 +51,35 @@ Helpers.cleanupModules = function(src, filepath) {
 
 Helpers.getTemplate = function(name) {
   return fs.readFileSync('./tasks/templates/' + name + '.tpl', 'utf8');
+};
+
+function getScripts(env) {
+  var scripts = '';
+  var tag = '<script type="text/javascript" src=":src"></script>\n';
+  require('./files').environments[env].forEach(function(file) {
+    scripts += tag.replace(':src', '/' + file);
+  });
+
+  return scripts;
+}
+
+function getStyles() {
+  var styles = '';
+  var tag = '<link rel="stylesheet/less" type="text/css" href=":href" />\n';
+  require('./files').sourceStyle.forEach(function(file) {
+    styles += tag.replace(':href', '/' + file);
+  });
+
+  return styles;
+}
+
+Helpers.getIndex = function(dir, env, callback) {
+  fs.readFile(path.join(base, dir, 'index.html'), function(err, index) {
+    callback(index.toString()
+      .replace('<!-- [[src/js]] -->', getScripts(env))
+      .replace('<!-- [[src/less]] -->', getStyles())
+    );
+  });
 };
 
 module.exports = Helpers;

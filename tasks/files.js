@@ -22,24 +22,31 @@ var files = {
 
   unitTests: 'test/unit/**/*.+(js|coffee)',
   e2eTests: ['test/e2e/SpecHelper.+(js|coffee)', 'test/e2e/*Spec.+(js|coffee)'],
-  testEnvKarma: [
-    'bower_components/angular/angular.js',
-    'bower_components/angular-mocks/angular-mocks.js'
-  ],
+
+  environments: {},
+
+  demo: 'demo/*',
 
   package: ['package.json', 'bower.json']
 };
 
-/* Prepare environments */
-files.testEnvKarma = files.testEnvKarma.concat(files.source);
-files.testEnvKarma.push(files.allPartialsCombined);
+var baseEnvironment = [].concat(
+  'bower_components/angular/angular.js',
+  files.source,
+  files.allPartialsCombined
+);
 
-files.testEnv = JSON.parse(JSON.stringify(files.testEnvKarma));
-files.testEnv.unshift('bower_components/less/dist/less-1.7.4.js');
-files.demoEnv = JSON.parse(JSON.stringify(files.testEnv));
+var demoEnvironment = JSON.parse(JSON.stringify(baseEnvironment));
+demoEnvironment.unshift('bower_components/less/dist/less-1.7.4.js');
 
-files.testEnvKarma.unshift('bower_components/jquery/dist/jquery.js');
-files.testEnvKarma.unshift('bower_components/jasmine-moar-matchers/*.js');
+var karmaEnvironment = JSON.parse(JSON.stringify(baseEnvironment));
+karmaEnvironment.unshift('bower_components/jquery/dist/jquery.js');
+karmaEnvironment.unshift('bower_components/jasmine-moar-matchers/*.js');
+karmaEnvironment.push('bower_components/angular-mocks/angular-mocks.js');
+
+
+files.environments.demo = demoEnvironment;
+files.environments.karma = karmaEnvironment;
 
 if (typeof module === 'object') {
   module.exports = files;

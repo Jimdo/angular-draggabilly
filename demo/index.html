@@ -4,20 +4,11 @@
   <meta charset="utf-8">
   <title>My angular demo</title>
   <link rel="stylesheet/less" type="text/css" href="style.less" />
-  <link rel="stylesheet/less" type="text/css" href="/src/less/style.less" />
+  <!-- [[src/less]] -->
 </head>
 <body>
   <div my-directive></div>
-  <script src="/bower_components/jquery/dist/jquery.js"></script>
-  <script>
-    /* jshint indent: false */
-    /* global files, $ */
-    $.get('/tasks/files.js', function() {
-      files.demoEnv.push('demo/app.js');
-      $.each(files.demoEnv, function(i, url) {
-        $('body').append($('<script>').attr('src', '/' + url));
-      });
-    });
-  </script>
+  <!-- [[src/js]] -->
+  <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
