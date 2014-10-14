@@ -8,5 +8,11 @@ module.exports = {
       stdout: false,
       stderr: false
     }
+  },
+  opendemo: {
+    command: 'sleep 1; open http://localhost:' + (optPort || process.env.DEMO_PORT || 8000) + '/',
+    options: {
+      async: true
+    }
   }
 };

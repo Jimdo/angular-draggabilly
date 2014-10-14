@@ -1,9 +1,6 @@
 /**
  * Build instructions for grunt.
  *
- * Structure seen in [rprtr](https://github.com/mrmrs/rprtr)
- * by [aputinski](https://github.com/aputinski)
- *
  * @param  {Object} grunt
  * @return {void}
  */
@@ -44,7 +41,7 @@ module.exports = function(grunt) {
     }
   );
 
-  grunt.registerTask('demo', 'Start the demo app', ['connect:demo', 'parallel:watchdemo']);
+  grunt.registerTask('demo', 'Start the demo app', ['connect:demo', 'shell:opendemo', 'parallel:watchdemo']);
 
   grunt.registerTask(
     'test',
@@ -85,7 +82,7 @@ module.exports = function(grunt) {
     ]);
   });
 
-  grunt.registerTask('default', 'Test and Build', ['test']);
+  grunt.registerTask('default', 'Test', ['test']);
 
   grunt.initConfig(config);
 };

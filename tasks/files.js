@@ -1,3 +1,4 @@
+var _ = require('grunt').util._;
 var files = {
   grunt: 'Gruntfile.js',
 
@@ -36,9 +37,9 @@ var baseEnvironment = [].concat(
   files.allPartialsCombined
 );
 
-var demoEnvironment = JSON.parse(JSON.stringify(baseEnvironment));
+var demoEnvironment = _.clone(baseEnvironment);
+var karmaEnvironment = _.clone(baseEnvironment);
 
-var karmaEnvironment = JSON.parse(JSON.stringify(baseEnvironment));
 karmaEnvironment.unshift('bower_components/jasmine-moar-matchers/*.js');
 karmaEnvironment.push('bower_components/angular-mocks/angular-mocks.js');
 
