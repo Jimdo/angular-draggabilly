@@ -65,9 +65,9 @@ function getScripts(env) {
 
 function getStyles() {
   var styles = '';
-  var tag = '<link rel="stylesheet/less" type="text/css" href=":href" />\n';
+  var tag = '<link rel="stylesheet" type="text/css" href=":href" />\n';
   require('./files').sourceStyle.forEach(function(file) {
-    styles += tag.replace(':href', '/' + file);
+    styles += tag.replace(':href', '/' + file.replace('.less', '.css'));
   });
 
   return styles;

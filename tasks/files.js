@@ -37,10 +37,8 @@ var baseEnvironment = [].concat(
 );
 
 var demoEnvironment = JSON.parse(JSON.stringify(baseEnvironment));
-demoEnvironment.unshift('bower_components/less/dist/less-1.7.4.js');
 
 var karmaEnvironment = JSON.parse(JSON.stringify(baseEnvironment));
-karmaEnvironment.unshift('bower_components/jquery/dist/jquery.js');
 karmaEnvironment.unshift('bower_components/jasmine-moar-matchers/*.js');
 karmaEnvironment.push('bower_components/angular-mocks/angular-mocks.js');
 

@@ -29,7 +29,7 @@ beforeEach(function() {
   $rootScope.$digest();
 
   /* Save a reference to the directive scope */
-  $scope = elm.children().first().scope();
+  $scope = elm.isolateScope();
 });
 
 afterEach(function() {

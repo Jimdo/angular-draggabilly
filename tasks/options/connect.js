@@ -1,5 +1,6 @@
 var optPort = require('grunt').option('port');
 var helpers = require('../helpers');
+var connectLess = require('connect-less');
 
 function middleware(dir, env) {
   return function(connect, options, middlewares) {
@@ -12,6 +13,10 @@ function middleware(dir, env) {
       }
       next();
     });
+
+
+    middlewares.unshift(connectLess());
+
     return middlewares;
   };
 }
