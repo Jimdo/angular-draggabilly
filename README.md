@@ -2,6 +2,7 @@ Angular Directive Seed
 ======================
 
 [![Build Status](https://travis-ci.org/Jimdo/angular-directive-seed.png)](https://travis-ci.org/Jimdo/angular-directive-seed)
+[![Coverage Status](https://coveralls.io/repos/Jimdo/angular-directive-seed/badge.png?branch=master)](https://coveralls.io/r/Jimdo/angular-directive-seed?branch=master)
 
 Basically a clone of [angular seed](https://github.com/angular/angular-seed)  
 We striped out things we don't use and added Grunt
@@ -72,6 +73,7 @@ Grunt Tasks
 -----------
 
  * `grunt`: Execute tests
+ * `grunt coverage`: Serve coverage report on port 7000
  * `grunt test`: Just test
  * `grunt test:e2e`: Just test end to end
  * `grunt test:unit`: Just test unit
