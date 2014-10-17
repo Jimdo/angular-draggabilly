@@ -28,8 +28,8 @@
     'use strict';
   
     $templateCache.put('directive.html',
-      "<h1>My Directive</h1>"
+      "<div><h1>My Directive</h1><h2>{{foo}}</h2></div>"
     );
   
   }]);
-})(angular);
+})(window.angular);
