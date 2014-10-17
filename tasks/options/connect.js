@@ -50,5 +50,13 @@ module.exports = {
       base: baseDirs.concat('demo'),
       livereload: true
     }
+  },
+  coverage: {
+    options: {
+      port: optPort || process.env.COVERAGE_PORT || 7000,
+      base: path.join(base, 'coverage/lcov-report'),
+      keepalive: true,
+      open: true
+    }
   }
 };

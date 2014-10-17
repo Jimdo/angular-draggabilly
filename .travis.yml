@@ -16,3 +16,6 @@ before_script:
 
 script:
   - grunt test
+
+after_success:
+  - grunt coveralls

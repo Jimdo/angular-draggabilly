@@ -1,4 +1,6 @@
 var optPort = require('grunt').option('port');
+var path = require('path');
+var base = process.cwd();
 
 module.exports = {
   startsilenium: {
@@ -14,5 +16,11 @@ module.exports = {
     options: {
       async: true
     }
+  },
+  deleteCoverages: {
+    command: [
+      'rm -rf',
+      path.join(base, 'coverage')
+    ].join(' ')
   }
 };

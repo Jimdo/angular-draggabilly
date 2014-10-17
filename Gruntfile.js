@@ -41,7 +41,13 @@ module.exports = function(grunt) {
     }
   );
 
-  grunt.registerTask('demo', 'Start the demo app', ['connect:demo', 'shell:opendemo', 'parallel:watchdemo']);
+  grunt.registerTask('demo', 'Start the demo app', [
+    'connect:demo',
+    'shell:opendemo',
+    'parallel:watchdemo'
+  ]);
+
+  grunt.registerTask('coverage', 'Serve coverage report', ['connect:coverage']);
 
   grunt.registerTask(
     'test',
@@ -50,7 +56,7 @@ module.exports = function(grunt) {
       var tasks = ['jshint', 'ngtemplates'];
       if (!suite || suite === 'unit') {
         process.env.defaultBrowsers = 'Firefox,Chrome';
-        tasks.push('karma:all');
+        tasks.push('shell:deleteCoverages', 'karma:all');
       }
       if (!suite || suite === 'e2e') {
         tasks.push('connect:test', 'protractor:single');

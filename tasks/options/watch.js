@@ -10,7 +10,7 @@ var demoFiles = files.source.concat(files.sourceStyle, files.allPartialsCombined
 module.exports = {
   andtestunit: {
     files: unitTestfiles,
-    tasks: ['ngtemplates', 'karma:watch:run']
+    tasks: ['shell:deleteCoverages', 'ngtemplates', 'karma:watch:run', 'coverage']
   },
   andteste2e: {
     files: e2eTestfiles,
@@ -18,7 +18,7 @@ module.exports = {
   },
   andtestboth: {
     files: bothTestfiles,
-    tasks: ['ngtemplates', 'karma:watch:run', 'protractor:tdd']
+    tasks: ['shell:deleteCoverages', 'ngtemplates', 'karma:watch:run', 'protractor:tdd']
   },
   partials: {
     files: files.allPartials,
