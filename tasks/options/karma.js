@@ -16,6 +16,8 @@ module.exports = {
         type: 'lcov',
         dir: 'coverage',
         subdir: '.'
+      }, {
+        type: 'text-summary'
       }]
     },
     reporters: ['progress', 'coverage'],
