@@ -1,5 +1,5 @@
 /*!
- * angular-draggabilly v0.0.2
+ * angular-draggabilly v0.0.3
  * https://github.com/Jimdo/angular-draggabilly
  *
  * An angular wrapper for Draggabilly
