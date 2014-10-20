@@ -2,6 +2,7 @@ Angular Draggabilly directive - drag and drop for Angular
 ======================
 
 [![Build Status](https://travis-ci.org/Jimdo/angular-draggabilly.png)](https://travis-ci.org/Jimdo/angular-draggabilly)
+[![devDependency Status](https://david-dm.org/Jimdo/angular-draggabilly/dev-status.svg)](https://david-dm.org/Jimdo/angular-draggabilly#info=devDependencies)
 
 This is an angular wrapper to [Draggabilly](https://github.com/desandro/draggabilly).
 
