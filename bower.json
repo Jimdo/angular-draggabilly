@@ -16,7 +16,7 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
-    "angular-mocks": "~1.2.20",
+    "angular-mocks": "^1.2.20",
     "jquery": "~2.1.1"
   },
   "ignore": [
@@ -31,7 +31,7 @@
     "package.json"
   ],
   "dependencies": {
-    "angular": "~1.2.20",
+    "angular": "^1.2.20",
     "draggabilly": "~1.1.0"
   }
 }
