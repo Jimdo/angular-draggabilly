@@ -75,6 +75,7 @@ module.exports = function(grunt) {
       'concat:bannerToDistStyle',
       'concat:bannerToDistStyleMin',
       'concat:dist',
+      'ngAnnotate:dist',
       'uglify'
     ]
   );
