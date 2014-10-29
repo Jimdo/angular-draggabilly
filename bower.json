@@ -1,8 +1,7 @@
 {
   "name": "angular-directive-seed",
   "version": "0.0.0",
-  "authors": [
-  ],
+  "authors": [],
   "description": "A starting point for angular directives.",
   "main": "dist/angular-directive-seed.js",
   "keywords": [
@@ -12,9 +11,9 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "jasmine-moar-matchers": "https://gist.github.com/8549144a6969317efa11.git",
     "angular": "~1.2.21",
-    "angular-mocks": "~1.2.21"
+    "angular-mocks": "~1.2.21",
+    "jasmine-moar-matchers": "~0.0.2"
   },
   "ignore": [
     "**/.*",

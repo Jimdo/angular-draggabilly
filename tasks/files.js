@@ -4,7 +4,7 @@ var files = {
 
   source: [
     'src/js/helper.module.js',
-    'src/js/directive.directive.js',
+    'src/js/directive.directive.js'
   ],
   sourceStyle: [
     'src/less/style.less'
@@ -40,7 +40,7 @@ var baseEnvironment = [].concat(
 var demoEnvironment = _.clone(baseEnvironment);
 var karmaEnvironment = _.clone(baseEnvironment);
 
-karmaEnvironment.unshift('bower_components/jasmine-moar-matchers/*.js');
+karmaEnvironment.unshift('bower_components/jasmine-moar-matchers/lib/*.js');
 karmaEnvironment.push('bower_components/angular-mocks/angular-mocks.js');
 
 
