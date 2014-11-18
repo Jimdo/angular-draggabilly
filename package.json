@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "test": "grunt test",
-    "install": "./node_modules/bower/bin/bower install; ln -sf ./node_modules/grunt-cli/bin/grunt ./grunt; ./node_modules/protractor/bin/webdriver-manager update; ./grunt build"
+    "postinstall": "bower install && ln -sf ./node_modules/grunt-cli/bin/grunt ./grunt && ./node_modules/protractor/bin/webdriver-manager update && ./grunt build"
   },
   "repository": {
     "type": "git",
