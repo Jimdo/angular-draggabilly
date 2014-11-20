@@ -1,3 +1,4 @@
+/* global initGlobals, createDirective */
 describe('Setup', function() {
   'use strict';
 
@@ -10,7 +11,15 @@ describe('Setup', function() {
   });
 
   it('should be able to find the angular module', function() {
+    initGlobals();
     expect(angular.module('myModule')).toBeDefined();
+  });
+
+  it('should be able to create a directive', function() {
+    initGlobals();
+
+    var directive = createDirective();
+    expect(directive.scope.foo).toBe('bar');
   });
 
   it('should have additional jasmine matchers', function() {
@@ -21,5 +30,4 @@ describe('Setup', function() {
     expect(window.waitsFor).toBeUndefined();
     window.setTimeout(done, 10);
   });
-
 });

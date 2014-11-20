@@ -21,14 +21,14 @@ var files = {
   allPartials: 'src/partials/*.html',
   allPartialsCombined: '.tmp/all-partials.js',
 
-  unitTests: 'test/unit/**/*.+(js|coffee)',
+  unitTests: ['test/unit/SpecHelper.+(js|coffee)', 'test/unit/**/*Spec.+(js|coffee)'],
   e2eTests: ['test/e2e/SpecHelper.+(js|coffee)', 'test/e2e/*Spec.+(js|coffee)'],
 
   environments: {},
 
   demo: 'demo/*',
 
-  package: ['package.json', 'bower.json']
+  'package': ['package.json', 'bower.json']
 };
 
 var baseEnvironment = [].concat(

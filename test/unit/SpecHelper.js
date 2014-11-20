@@ -4,11 +4,13 @@
 /* jshint undef: false, unused: false  */
 
 /* some globals we might need later on, set in beforeEach */
-var $rootScope, $compile, $injector, $httpBackend, $scope, $q, $controller, elm;
+var $rootScope, $compile, $injector, $httpBackend, $scope, $q, $controller;
 
-beforeEach(function() {
-  /* Initiate the main module */
-  module('myModule');
+function initGlobals(withModule) {
+  if (withModule !== false) {
+    /* Initiate the main module */
+    module('myModule');
+  }
 
   /* jshint maxparams: 10 */
   inject(function(_$rootScope_, _$compile_, _$injector_, _$httpBackend_, _$q_, _$controller_) {
@@ -20,20 +22,32 @@ beforeEach(function() {
     $q           = _$q_;
     $controller  = _$controller_;
   });
+}
+
+function createDirective() {
+  var r = {};
 
   /* Create the element for our directive */
-  elm = angular.element('<div my-directive>');
+  r.elm = angular.element('<div my-directive>');
 
   /* Apply the directive */
-  $compile(elm)($rootScope);
+  $compile(r.elm)($rootScope);
   $rootScope.$digest();
 
   /* Save a reference to the directive scope */
-  $scope = elm.isolateScope();
+  r.scope = r.elm.isolateScope() || r.elm.scope();
+
+  return r;
+}
+
+beforeEach(function() {
+  $rootScope = $compile = $injector = $httpBackend = $scope = $q = $controller = null;
 });
 
 afterEach(function() {
-  /* Make sure, there are no unexpected request */
-  $httpBackend.verifyNoOutstandingExpectation();
-  $httpBackend.verifyNoOutstandingRequest();
+  if ($httpBackend) {
+    /* Make sure, there are no unexpected request */
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  }
 });
