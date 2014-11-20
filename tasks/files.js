@@ -19,7 +19,7 @@ var files = {
   partialsDir: 'src/partials',
   allHTML: '*.html',
   allPartials: 'src/partials/*.html',
-  allPartialsCombined: 'test/e2e/env/all-partials.js',
+  allPartialsCombined: '.tmp/all-partials.js',
 
   unitTests: 'test/unit/**/*.+(js|coffee)',
   e2eTests: ['test/e2e/SpecHelper.+(js|coffee)', 'test/e2e/*Spec.+(js|coffee)'],
