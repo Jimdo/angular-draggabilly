@@ -20,7 +20,7 @@ module.exports = {
   deleteCoverages: {
     command: [
       'rm -rf',
-      path.join(base, 'coverage')
+      path.join(base, '.tmp/coverage')
     ].join(' ')
   }
 };

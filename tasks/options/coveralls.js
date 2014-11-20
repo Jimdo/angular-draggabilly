@@ -1,5 +1,5 @@
 module.exports = {
   coveralls: {
-    src: 'coverage/lcov.info'
+    src: '.tmp/coverage/lcov.info'
   }
 };

@@ -54,7 +54,7 @@ module.exports = {
   coverage: {
     options: {
       port: optPort || process.env.COVERAGE_PORT || 7000,
-      base: path.join(base, 'coverage/lcov-report'),
+      base: path.join(base, '.tmp/coverage/lcov-report'),
       keepalive: true,
       open: true
     }
