@@ -1,9 +1,9 @@
 /* global myModule */
-myModule.directive('myDirective', [function() {
+myModule.directive('myDirective', function() {
   return {
     templateUrl: 'directive.html',
-    controller: ['$scope', function($scope) {
+    controller: function($scope) {
       $scope.foo = 'bar';
-    }]
+    }
   };
-}]);
+});
