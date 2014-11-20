@@ -4,7 +4,7 @@ var files = {
 
   source: [
     'src/js/helper.module.js',
-    'src/js/directive.directive.js'
+    'src/js/!(helper.module)*.js'
   ],
   sourceStyle: [
     'src/less/style.less'
