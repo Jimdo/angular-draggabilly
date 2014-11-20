@@ -66,23 +66,21 @@
     "predef"        : [
         "angular",
         "jasmine",
-        "jQuery",
         "beforeEach",
         "afterEach",
         "describe",
-        "ddescribe",
         "xdescribe",
         "it",
-        "iit",
+        "it",
         "xit",
         "expect",
         "spyOn",
-        "runs",
-        "waits",
         "inject",
         "module",
         "exports",
         "require",
-        "process"
+        "process",
+        "element",
+        "by"
     ]
 }
