@@ -3,6 +3,7 @@ Angular Directive Seed
 
 [![Build Status](https://travis-ci.org/Jimdo/angular-directive-seed.png)](https://travis-ci.org/Jimdo/angular-directive-seed)
 [![Coverage Status](https://coveralls.io/repos/Jimdo/angular-directive-seed/badge.png?branch=master)](https://coveralls.io/r/Jimdo/angular-directive-seed?branch=master)
+[![devDependency Status](https://david-dm.org/Jimdo/angular-directive-seed/dev-status.svg)](https://david-dm.org/Jimdo/directive-seed#info=devDependencies)
 
 Basically a clone of [angular seed](https://github.com/angular/angular-seed)  
 We striped out things we don't use and added Grunt
