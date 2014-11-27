@@ -6,6 +6,12 @@
 /* some globals we might need later on, set in beforeEach */
 var $rootScope, $compile, $injector, $httpBackend, $scope, $q, $controller;
 
+/**
+ * Initiate the angular module we want to test on and initiate
+ * global angular modules required for testing (like $rootScope etc.)
+ * 
+ * @param {bool} [withModule] disable automatic module initiation (by default, the module is initiated automatically for you)
+ */
 function initGlobals(withModule) {
   if (withModule !== false) {
     /* Initiate the main module */
