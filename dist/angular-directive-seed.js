@@ -4,7 +4,7 @@
  *
  * A starting point for angular directives.
  *
- * Copyright 2014, Jimdo, Hannes Diercks <hannes.diercks@jimdo.com>
+ * Copyright 2014, Jimdo GmbH
  * Released under the MIT license
  */
 (function(angular, undefined) {
@@ -14,16 +14,16 @@
   var myModule = angular.module('myModule', []);
 
   // src/js/directive.directive.js
-  myModule.directive('myDirective', [function() {
+  myModule.directive('myDirective', function() {
     return {
       templateUrl: 'directive.html',
       controller: ['$scope', function($scope) {
         $scope.foo = 'bar';
       }]
     };
-  }]);
+  });
 
-  // test/e2e/env/all-partials.js
+  // .tmp/all-partials.js
   angular.module('myModule').run(['$templateCache', function($templateCache) {
     'use strict';
   
