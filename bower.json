@@ -1,7 +1,11 @@
 {
   "name": "angular-directive-seed",
   "version": "0.0.0",
-  "authors": [],
+  "authors": [
+    "Hannes Diercks <hannes.diercks@jimdo.com>",
+    "Joscha Feth <joscha@feth.com>",
+    "Hauke Stange <hauke@jimdo.com>"
+  ],
   "description": "A starting point for angular directives.",
   "main": "dist/angular-directive-seed.js",
   "keywords": [
