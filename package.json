@@ -4,7 +4,11 @@
   "description": "A starting point for angular directives.",
   "homepage": "https://github.com/Jimdo/angular-directive-seed",
   "author": "Jimdo GmbH",
-  "maintainers": [],
+  "maintainers": [
+    "Hannes Diercks <hannes.diercks@jimdo.com>",
+    "Joscha Feth <joscha@feth.com>",
+    "Hauke Stange <hauke@jimdo.com>"
+  ],
   "contributors": [],
   "main": "Gruntfile.js",
   "keywords": [
