@@ -1,4 +1,5 @@
 var files = require('../files');
+var DEFAULT_BROWSERS = 'Chrome,Firefox,PhantomJS';
 var browsers = process.env.KARMA_BROWSERS;
 
 module.exports = {
@@ -27,8 +28,14 @@ module.exports = {
   },
   all: {
     options: {
-      browsers: (browsers || 'Chrome,Firefox,PhantomJS').split(',')
+      browsers: (browsers || DEFAULT_BROWSERS).split(',')
     }
+  },
+  ci: {
+    options: {
+      browsers: (browsers || DEFAULT_BROWSERS).split(','),
+      reporters: ['spec', 'coverage']
+    },
   },
   watch: {
     options: {

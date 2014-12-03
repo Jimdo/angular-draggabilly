@@ -66,6 +66,19 @@ module.exports = function(grunt) {
   );
 
   grunt.registerTask(
+    'test:ci',
+    'Execute all the tests for continuous integration',
+    [
+      'jshint',
+      'ngtemplates',
+      'shell:deleteCoverages',
+      'karma:ci',
+      'connect:test',
+      'protractor:single'
+    ]
+  );
+
+  grunt.registerTask(
     'build',
     'Build dist files',
     [

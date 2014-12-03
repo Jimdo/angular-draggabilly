@@ -1,7 +1,7 @@
-var _ = require('grunt').util._;
+var grunt = require('grunt');
 var files = require('../files');
 var glob = require('glob');
-var grunt = require('grunt');
+var _ = grunt.util._;
 var isDebug = !!grunt.option('debug');
 
 var jar = glob.sync('node_modules/protractor/selenium/selenium-server-standalone-2.*.jar')[0];

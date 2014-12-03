@@ -1,4 +1,5 @@
 var browsers = process.env.PROTRACTOR_BROWSERS;
+var reporter = process.env.PROTRACTOR_REPORTER;
 var capabilities = [];
 (browsers || 'chrome').split(',').forEach(function(browser) {
   capabilities.push({browserName: browser.toLowerCase()});
@@ -13,6 +14,15 @@ exports.config = {
   multiCapabilities: capabilities,
   jasmineNodeOpts: {
     showColors: true,
-    defaultTimeoutInterval: 360000
+    defaultTimeoutInterval: 360000,
+    silent: !!reporter
+  },
+  onPrepare: function() {
+    switch(reporter) {
+      case 'spec':
+        var SpecReporter = require('jasmine-spec-reporter');
+        jasmine.getEnv().addReporter(new SpecReporter({displayStacktrace: true}));
+        break;
+    }
   }
 };

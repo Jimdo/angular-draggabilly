@@ -46,6 +46,7 @@
     "grunt-parallel": "^0.3.1",
     "grunt-protractor-runner": "~1.1.4",
     "grunt-shell-spawn": "~0.3.0",
+    "jasmine-spec-reporter": "^1.1.0",
     "karma-chrome-launcher": "~0.1.6",
     "karma-coffee-preprocessor": "~0.2.1",
     "karma-coverage": "^0.2.7",
@@ -55,6 +56,7 @@
     "karma-phantomjs-launcher": "~0.1.4",
     "karma-requirejs": "~0.2.2",
     "karma-script-launcher": "~0.1.0",
+    "karma-spec-reporter": "0.0.13",
     "load-grunt-tasks": "~1.0.0",
     "mkdirp": "^0.5.0",
     "protractor": "~1.4.0"
