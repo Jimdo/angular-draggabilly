@@ -1,18 +1,22 @@
 language: node_js
 node_js:
-  - "0.11"
+  - "0.10"
 
-before_install:
-  - npm install -g bower grunt-cli
+env:
+  global:
+    - PROTRACTOR_BROWSERS=firefox
+    - KARMA_BROWSERS=Firefox,PhantomJS
+    - PROTRACTOR_REPORTER=spec
 
 install:
   - npm install
-  - bower install
 
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 
 script:
-  - grunt test:travis
-  - grunt test:e2e --browser=firefox
+  - grunt test:ci
+
+after_success:
+  - grunt coveralls

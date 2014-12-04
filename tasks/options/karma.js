@@ -1,37 +1,47 @@
 var files = require('../files');
+var DEFAULT_BROWSERS = 'Chrome,Firefox,PhantomJS';
+var browsers = process.env.KARMA_BROWSERS;
 
 module.exports = {
   options: {
+    browsers: (browsers || 'Chrome').split(','),
     preprocessors: {
+      'src/**/*.+(js|coffee)': ['coverage'],
       '**/*.coffee': ['coffee']
     },
     frameworks: [
       'jasmine'
     ],
-    files: files.testEnvKarma.concat([files.unitTests])
+    coverageReporter: {
+      reporters: [{
+        type: 'lcov',
+        dir: '.tmp/coverage',
+        subdir: '.'
+      }, {
+        dir: '.tmp/coverage',
+        type: 'text-summary'
+      }]
+    },
+    reporters: ['progress', 'coverage'],
+    singleRun: true,
+    files: files.environments.karma.concat([files.unitTests])
   },
   all: {
     options: {
-      browsers: ['PhantomJS', 'Chrome', 'Firefox'],
-      singleRun: true
+      browsers: (browsers || DEFAULT_BROWSERS).split(',')
     }
   },
-  headless: {
+  ci: {
     options: {
-      browsers: ['PhantomJS'],
-      singleRun: true
-    }
-  },
-  travis: {
-    options: {
-      browsers: ['PhantomJS', 'Firefox'],
-      singleRun: true
-    }
+      browsers: (browsers || DEFAULT_BROWSERS).split(','),
+      reporters: ['spec', 'coverage']
+    },
   },
   watch: {
     options: {
-      browsers: ['Chrome'],
-      background: true
+      background: true,
+      singleRun: false,
+      autoWatch: false
     }
   }
 };

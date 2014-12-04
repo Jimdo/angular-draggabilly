@@ -71,19 +71,17 @@
         "beforeEach",
         "afterEach",
         "describe",
-        "ddescribe",
         "xdescribe",
         "it",
-        "iit",
         "xit",
         "expect",
         "spyOn",
-        "runs",
-        "waits",
         "inject",
         "module",
         "exports",
         "require",
-        "process"
+        "process",
+        "element",
+        "by"
     ]
 }

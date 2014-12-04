@@ -1,6 +1,7 @@
 Angular Draggabilly directive - drag and drop for Angular
 ======================
 
+<<<<<<< HEAD
 [![Build Status](https://travis-ci.org/Jimdo/angular-draggabilly.png)](https://travis-ci.org/Jimdo/angular-draggabilly)
 [![devDependency Status](https://david-dm.org/Jimdo/angular-draggabilly/dev-status.svg)](https://david-dm.org/Jimdo/angular-draggabilly#info=devDependencies)
 
@@ -72,7 +73,7 @@ Demo
 ----
 You can start a demo server with `grunt demo` and go to [localhost:8000/demo](http://localhost:8000/demo/) to test the directive.
 
-For contributors
+Grunt Tasks
 -----------
 Initialize with
 
@@ -81,7 +82,8 @@ npm install
 ```
 and then use the various tasks:
 
- * `grunt`: Execute tests and build dist
+ * `grunt`: Execute tests
+ * `grunt coverage`: Serve coverage report on port 7000
  * `grunt test`: Just test
  * `grunt test:e2e`: Just test end to end
  * `grunt test:unit`: Just test unit
@@ -90,6 +92,14 @@ and then use the various tasks:
  * `grunt tdd:unit`: Watch and test just unit
  * `grunt build`: Just build
  * `grunt release`: Test, build, bump patch version, commit, add version tag and push
+
+ `test` tasks have a `--browsers` option to specify the browsers you want to use
+
+ Browsers can also be set by the following environment-variables
+ ```
+   PROTRACTOR_BROWSERS=Firefox,Chrome
+   KARMA_BROWSERS=Firefox,PhantomJS
+ ```
 
 _See Gruntfile.js and tasks/options for all task details._
 

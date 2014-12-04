@@ -17,6 +17,7 @@
   "private": false,
   "devDependencies": {
     "angular-mocks": "^1.2.20",
+    "jasmine-moar-matchers": "~0.0.2",
     "jquery": "~2.1.1"
   },
   "ignore": [

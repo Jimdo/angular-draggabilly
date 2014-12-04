@@ -3,11 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>E2E Tests</title>
-  <style media="screen">
-    body {
-      margin: 0;
-    }
-  </style>
+  <!-- [[src/less]] -->
 </head>
 <body>
   <!--       THIS IS NOT A SANDBOX, IT'S FOR E2E TESTING!      -->
@@ -36,16 +32,8 @@
 
   <input id="events" type="text" ng-model="evts"/>
   <input type="checkbox" id="toggleDrag" ng-model="dragEnabled" checked="checked"/>
-  <script src="/bower_components/jquery/dist/jquery.js"></script>
-  <script>
-    /* jshint indent: false */
-    /* global files, $ */
-    $.get('/tasks/files.js', function() {
-      files.testEnv.push('test/e2e/env/app.js');
-      $.each(files.testEnv, function(i, url) {
-        $('body').append($('<script>').attr('src', '/' + url));
-      });
-    });
-  </script>
+
+  <!-- [[src/js]] -->
+  <script type="text/javascript" src="app.js"></script>
 </body>
 </html>

@@ -3,21 +3,12 @@
 <head>
   <meta charset="utf-8">
   <title>My angular demo</title>
-  <link type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="demo/style.css" />
+  <!-- [[src/less]] -->
 </head>
 <body>
-  <my-app></my-app>
-
-  <script src="/bower_components/jquery/dist/jquery.js"></script>
-  <script>
-    /* jshint indent: false */
-    /* global files, $ */
-    $.get('/tasks/files.js', function() {
-      files.demoEnv.push('demo/app.js');
-      $.each(files.demoEnv, function(i, url) {
-        $('body').append($('<script>').attr('src', '/' + url));
-      });
-    });
-  </script>
+  <my-module></my-module>
+  <!-- [[src/js]] -->
+  <script type="text/javascript" src="demo/app.js"></script>
 </body>
 </html>
