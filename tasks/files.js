@@ -6,7 +6,12 @@ var files = {
     'src/js/helper.module.js',
     'src/js/!(helper.module)*.js'
   ],
+  sourceStyle: [
+    'src/less/style.less'
+  ],
 
+  distStyle: 'dist/<%= pkg.name %>.css',
+  distStyleMin: 'dist/<%= pkg.name %>.min.css',
   dist: 'dist/<%= pkg.name %>.js',
   distMin: 'dist/<%= pkg.name %>.min.js',
   dists: 'dist/*',
@@ -34,6 +39,7 @@ var baseEnvironment = [].concat(
   'bower_components/eventie/eventie.js',
   'bower_components/get-style-property/get-style-property.js',
   'bower_components/get-size/get-size.js',
+  'bower_components/draggabilly/draggabilly.js',
   files.source,
   files.allPartialsCombined
 );

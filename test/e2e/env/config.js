@@ -1,5 +1,5 @@
 var browsers = process.env.PROTRACTOR_BROWSERS;
-var reporter = process.env.PROTRACTOR_REPORTER;
+var reporter = process.env.PROTRACTOR_REPORTERS;
 var capabilities = [];
 (browsers || 'chrome').split(',').forEach(function(browser) {
   capabilities.push({browserName: browser.toLowerCase()});

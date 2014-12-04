@@ -1,3 +1,4 @@
+var grunt = require('grunt');
 var files = require('../files');
 var glob = require('glob');
 var _ = grunt.util._;

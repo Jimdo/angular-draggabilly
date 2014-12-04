@@ -18,6 +18,7 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   grunt.loadTasks('tasks');
 
+
   grunt.registerTask(
     'tdd',
     'Watch source and test files and execute tests on change',
@@ -65,27 +66,14 @@ module.exports = function(grunt) {
   );
 
   grunt.registerTask(
-    'test:ci',
-    'Execute all the tests for continuous integration',
-    [
-      'jshint',
-      'ngtemplates',
-      'shell:deleteCoverages',
-      'karma:ci',
-      'connect:test',
-      'protractor:single'
-    ]
-  );
-
-  grunt.registerTask(
     'build',
     'Build dist files',
     [
-      'ngtemplates',
-      'less:dist',
-      'less:distmin',
-      'concat:bannerToDistStyle',
-      'concat:bannerToDistStyleMin',
+      //'ngtemplates',
+      //'less:dist',
+      //'less:distmin',
+      //'concat:bannerToDistStyle',
+      //'concat:bannerToDistStyleMin',
       'concat:dist',
       'ngAnnotate:dist',
       'uglify'

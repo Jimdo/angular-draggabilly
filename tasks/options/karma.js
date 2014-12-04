@@ -1,6 +1,7 @@
 var files = require('../files');
 var DEFAULT_BROWSERS = 'Chrome,Firefox,PhantomJS';
 var browsers = process.env.KARMA_BROWSERS;
+var reporters = process.env.KARMA_REPORTERS;
 
 module.exports = {
   options: {
@@ -22,7 +23,7 @@ module.exports = {
         type: 'text-summary'
       }]
     },
-    reporters: ['progress', 'coverage'],
+    reporters: (reporters || 'progress').split(',').concat('coverage'),
     singleRun: true,
     files: files.environments.karma.concat([files.unitTests])
   },
@@ -30,12 +31,6 @@ module.exports = {
     options: {
       browsers: (browsers || DEFAULT_BROWSERS).split(',')
     }
-  },
-  ci: {
-    options: {
-      browsers: (browsers || DEFAULT_BROWSERS).split(','),
-      reporters: ['spec', 'coverage']
-    },
   },
   watch: {
     options: {

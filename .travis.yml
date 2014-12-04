@@ -6,7 +6,6 @@ env:
   global:
     - PROTRACTOR_BROWSERS=firefox
     - KARMA_BROWSERS=Firefox,PhantomJS
-    - PROTRACTOR_REPORTER=spec
 
 install:
   - npm install
@@ -16,7 +15,7 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 
 script:
-  - grunt test:ci
+  - grunt test --reporter=spec
 
 after_success:
   - grunt coveralls
