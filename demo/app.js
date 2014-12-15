@@ -1,4 +1,4 @@
-angular.module('myModule', ['draggabilly']).directive('myApp', function() {
+angular.module('myApp', ['draggabilly']).directive('myModule', function() {
   return {
     restrict: 'E',
     replace: false,
@@ -9,4 +9,4 @@ angular.module('myModule', ['draggabilly']).directive('myApp', function() {
     }]
   };
 });
-angular.bootstrap(document, ['myModule']);
+angular.bootstrap(document, ['myApp']);
