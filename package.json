@@ -60,7 +60,6 @@
     "karma-spec-reporter": "0.0.26",
     "load-grunt-tasks": "~3.5.2",
     "mkdirp": "^0.5.1",
-    "phantomjs-prebuilt": "2.1.12",
     "protractor": "~4.0.5"
   },
   "peerDependencies": {
