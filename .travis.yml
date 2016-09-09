@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "0.10"
+  - "4"
 
 env:
   global:
@@ -19,3 +19,6 @@ script:
 
 after_success:
   - grunt coveralls
+  - if [ "$TRAVIS_BRANCH" == 'master' ] && [ "$TRAVIS_PULL_REQUEST" == false ]; then
+      echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish;
+    fi
