@@ -4,8 +4,8 @@ var glob = require('glob');
 var _ = grunt.util._;
 var isDebug = !!grunt.option('debug');
 
-var jar = glob.sync('node_modules/protractor/selenium/selenium-server-standalone-2.*.jar')[0];
-var chromeDriver = process.cwd() + '/node_modules/protractor/selenium/chromedriver';
+var jar = glob.sync('node_modules/protractor/node_modules/webdriver-manager/selenium/selenium-server-standalone-2.*.jar')[0];
+var chromeDriver = glob.sync('node_modules/protractor/node_modules/webdriver-manager/selenium/chromedriver*')[0];
 
 var options = {
   debug: isDebug,

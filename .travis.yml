@@ -8,7 +8,7 @@ env:
     - KARMA_BROWSERS=Firefox,PhantomJS
 
 install:
-  - npm install
+  - npm install && npm run setup
 
 before_script:
   - export DISPLAY=:99.0

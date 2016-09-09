@@ -3,7 +3,7 @@ Helper = require './SpecHelper'
 describe 'with draggabilly it', ->
 
   dragTo = (element, deltaX = 0, deltaY = 0) ->
-    ptor.actions().
+    browser.actions().
       mouseMove(element, {x: 0, y: 0 }).
       mouseDown().
       mouseMove({x: deltaX, y: deltaY}).
