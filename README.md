@@ -1,4 +1,4 @@
-⚠️ This package is discontinued. Active maintenance is stopped and the package is as-is still available on npmjs.org. For details check out ticket CRE-1204.
+This package is discontinued. Active maintenance is stopped and the package is as-is still available on npmjs.org. For details check out ticket [CRE-1204](https://jimplan.atlassian.net/browse/CRE-1204).
 
 Angular Draggabilly directive - drag and drop for Angular
 ======================
